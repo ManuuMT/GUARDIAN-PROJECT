@@ -1,0 +1,23 @@
+.navbar{
+    background-color: none;
+    display: flex;
+}
+
+.navbar-brand{
+    margin-left: 50px;
+}
+.navbar .collapse{
+    justify-content: center;
+    margin-right: 80px;
+}
+
+.logo{
+    height: 40px;
+    width: 40px;
+}
+
+.grad-btn{
+    color: white;
+    background: linear-gradient(to right, rgba(226,9,203,255), rgba(236,72,44,255));
+    margin-right: 50px;
+}
