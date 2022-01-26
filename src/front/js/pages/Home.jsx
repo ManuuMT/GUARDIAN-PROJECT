@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import Navbar from "../component/Header/Navbar/Navbar.jsx";
+import Header from "../component/Header/Header.jsx"
 
 
 const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-	    <Navbar/>
+	    <Header/>
 	);
 };
 
