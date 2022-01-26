@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import injectContext from "./store/appContext.js"
 
 import Home from "./pages/home.jsx";
 
@@ -9,7 +10,6 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -18,7 +18,6 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
 			</BrowserRouter>
 		</div>
 	);
