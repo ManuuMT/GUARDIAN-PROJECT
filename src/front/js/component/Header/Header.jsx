@@ -1,9 +1,12 @@
 import React from "react";
-import Navbar from "../Header/Navbar/Navbar.jsx";
+import Navbar from "./Navbar/Navbar.jsx";
+import Intro from "./Intro/Intro.jsx";
 
 const Header = () => {
-    return (
+    return (<>
         <Navbar/>
+        <Intro/>
+        </>
     )
 };
 

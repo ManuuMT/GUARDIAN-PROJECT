@@ -1,0 +1,22 @@
+.left-col {
+    color: white;
+}
+
+.grad {
+    background: linear-gradient(to right, rgba(226,9,203,255), rgba(236,72,44,255));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.border-gradient {
+    background: none;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(to left, rgba(226,9,203,255), rgba(236,72,44,255));
+  }
+
+
+.intro-btn{
+    color:white;
+    width: 150px;
+}
