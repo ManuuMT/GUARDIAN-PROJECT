@@ -6,7 +6,7 @@ const Contact = () => {
     return (
         <>
             <container>
-                <Card className="text-center">
+                <Card className="btn grad-btn card-btn mt-5 text-center">
                     <Card.Header>Subscribe/Newsletter</Card.Header>
                     <Card.Body>
                     <FloatingLabel
@@ -16,7 +16,7 @@ const Contact = () => {
                     >
                         <Form.Control type="email" placeholder="name@example.com" />
                     </FloatingLabel>
-                        <Button variant="primary">Contact</Button>
+                        <Button className="btn border-gradient intro-btn mt-3 important!">Contact</Button>
                     </Card.Body>
                 </Card>
             </container>
