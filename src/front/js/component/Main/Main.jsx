@@ -1,6 +1,7 @@
 import React from "react";
 import Features from "./Features/Features.jsx";
 import HowWorks from "./HowWorks/HowWorks.jsx";
+import Process from "./Process/Process.jsx";
 //import Testimonials from "./SocialProof/SocialProof.jsx";
 
 const Main = () => {
@@ -8,6 +9,7 @@ const Main = () => {
     <>
       <Features />
       <HowWorks />
+      <Process />
       {/*<Testimonials /> */}
     </>
   );
