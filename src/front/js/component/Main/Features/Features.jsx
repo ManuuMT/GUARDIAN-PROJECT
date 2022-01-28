@@ -1,11 +1,12 @@
 import React from "react";
 import FeatureItem from "./FeatureItem/FeatureItem.jsx";
+import "./Features.scss"
 
 const Features = () => {
     return (
       <>
         <div className="container px-4 py-5 text-white">
-          <h2 className="pb-2 text-center">Columns with icons</h2>
+          <h2 className="pb-2 text-center">Safety advanced <span className="grad">features</span></h2>
           <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
             <FeatureItem />
             <FeatureItem />
