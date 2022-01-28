@@ -5,21 +5,24 @@ import { Card, FloatingLabel, Button, Form } from "react-bootstrap";
 const Contact = () => {
     return (
         <>
-            <container>
-                <Card className="btn grad-btn card-btn mt-5 text-center">
-                    <Card.Header>Subscribe/Newsletter</Card.Header>
+            <div className="container ">
+                <div className="row">
+                <Card className="card-btn mt-5 mb-5 text-center">
+                    <Card.Header><h2 className="mt-4">Subscribe/Newsletter</h2></Card.Header>
                     <Card.Body>
                     <FloatingLabel
                         controlId="floatingInput"
                         label="Email address"
-                        className="mb-3"
-                    >
-                        <Form.Control type="email" placeholder="name@example.com" />
-                    </FloatingLabel>
-                        <Button className="btn border-gradient intro-btn mt-3 important!">Contact</Button>
+                        className="w-50 btn grad-btn card-btn">
+                        <Form.Control type="email" placeholder="name@example.com"/>
+                        </FloatingLabel>
+                            <div>
+                                <Button className="btn border-gradient intro-btn mt-3" >Enviar</Button>
+                            </div>
                     </Card.Body>
                 </Card>
-            </container>
+                </div>
+            </div>
         </>
     );
 }
