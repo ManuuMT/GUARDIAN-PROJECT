@@ -4,7 +4,7 @@ const Copyright = () => {
     return (
         <> 
             <container className="container-fluid">
-                <h6 className="d-flex justify-content-center">Copyright</h6>
+                <h6 className="d-flex justify-content-center left-col">Copyright ©</h6>
             </container>
         </>
     );
