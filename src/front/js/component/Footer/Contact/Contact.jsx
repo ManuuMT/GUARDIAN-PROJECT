@@ -1,11 +1,12 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
+import "./Contact.scss"
 
 
 const Contact = () => {
     return (
         <>
-            <div className="container-fluid">
+            <div className="container border-grad p-4">
                 <div className="text-center">
                     <h3 className="left-col">Subscribe Our <strong className="grad">Newsletter</strong></h3>
                     <h3 className="left-col"> For Latest Updates</h3>

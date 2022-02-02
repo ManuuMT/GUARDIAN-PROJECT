@@ -1,0 +1,6 @@
+.border-grad {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to left, rgba(226,9,203,255), rgba(236,72,44,255));
+}
