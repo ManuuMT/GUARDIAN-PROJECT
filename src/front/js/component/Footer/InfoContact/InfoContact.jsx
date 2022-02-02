@@ -13,7 +13,7 @@ const InfoContact = () => {
         <>
                 <div className="container-fluid mt-5">
                     <Row>
-                        <Col xs={12} md={4}>
+                        <Col xs={12} md={3}>
                             <div className="container">
                                 <div>
                                     <div>
@@ -27,7 +27,7 @@ const InfoContact = () => {
                             </div>
                             <p className="text-light"></p>
                         </Col>
-                        <Col xs={1} md={8}>
+                        <Col xs={1} md={9}>
                             <Table className="table table-borderless">
                                 <thead>
                                     <tr className="left-col">
@@ -46,7 +46,7 @@ const InfoContact = () => {
                                             </ul>
                                         </td>
                                         <td>
-                                            <ul className="list-unstyled me-5">
+                                            <ul className="list-unstyled me-3">
                                                 <li><a className="text-light text-decoration-none" href="">Innovation</a></li>
                                                 <li><a className="text-light text-decoration-none" href="">Map</a></li>
                                                 <li><a className="text-light text-decoration-none" href="">How works</a></li>
@@ -55,7 +55,7 @@ const InfoContact = () => {
                                             </ul>
                                         </td>
                                         <td>
-                                            <ul className="list-unstyled me-2">
+                                            <ul className="list-unstyled me-1">
                                                 <li className="pb-2"><a className="text-light text-decoration-none" href="">Terms of use</a></li>
                                                 <li className="pb-2"><a className="text-light text-decoration-none" href="">Terms of conditions</a></li>
                                                 <li className="pb-2"><a className="text-light text-decoration-none" href="">Privacy Policy</a></li>
@@ -64,10 +64,10 @@ const InfoContact = () => {
                                         </td>
                                         <td>
                                             <ul className="list-unstyled">
-                                                <li className="pb-2"><a className="text-light text-decoration-none" href=""><AiFillFacebook className="icon"></AiFillFacebook>Facebook</a></li>
-                                                <li className="pb-2"><a className="text-light text-decoration-none" href=""><AiFillLinkedin className="icon"></AiFillLinkedin>Linkedin</a></li>
-                                                <li className="pb-2"><a className="text-light text-decoration-none" href=""><AiFillYoutube className="icon"></AiFillYoutube>Youtube</a></li>
-                                                <li className="pb-2"><a className="text-light text-decoration-none" href=""><AiFillInstagram className="icon"></AiFillInstagram>Instagram</a></li>
+                                                <li className="pb-2"><a className="text-light text-decoration-none letter" href=""><AiFillFacebook className="icon"></AiFillFacebook>Facebook</a></li>
+                                                <li className="pb-2"><a className="text-light text-decoration-none letter" href=""><AiFillLinkedin className="icon"></AiFillLinkedin>Linkedin</a></li>
+                                                <li className="pb-2"><a className="text-light text-decoration-none letter" href=""><AiFillYoutube className="icon"></AiFillYoutube>Youtube</a></li>
+                                                <li className="pb-2"><a className="text-light text-decoration-none letter" href=""><AiFillInstagram className="icon"></AiFillInstagram>Instagram</a></li>
                                             </ul>
                                         </td>
                                     </tr>
