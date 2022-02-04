@@ -1,6 +1,6 @@
 import React from "react";
 import './Navbar.scss';
-import logo from '../../../../assets/img/logo-ok.png';
+import logo from '../../../../assets/img/logo-guardian.png';
 import NavItem from "./NavItem/NavItem.jsx";
 
 const Navbar = () => {
