@@ -1,5 +1,7 @@
 import React from "react";
 import "./Process.scss";
+import process from "../../../../assets/img/process-img.png";
+
 
 const Process = () => {
     return (
@@ -18,7 +20,7 @@ const Process = () => {
                         </ul>
                     </div>
                     <div className="col-lg-8">
-                        <div className="bg-primary w-100 h-100">image</div>
+                        <img src={process} className="img-fluid"/>
                     </div>
                 </div>
             </div>
