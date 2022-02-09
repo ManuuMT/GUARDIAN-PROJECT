@@ -1,11 +1,12 @@
 import React from "react";
+import "./Copyright.scss";
 
 const Copyright = () => {
     return (
         <> 
-            <container className="container-fluid">
+            <div className="container-fluid copy-bg pb-3">
                 <h6 className="d-flex justify-content-center left-col">Copyright ©</h6>
-            </container>
+            </div>
         </>
     );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Table } from "react-bootstrap"
 import "./InfoContact.scss";
-import logo from '../../../../assets/img/logo-ok.png';
+import logo from '../../../../assets/img/logo-guardian.png';
 import { AiFillFacebook, AiFillLinkedin, AiFillYoutube, AiFillInstagram, AiTwotoneMail } from "react-icons/ai";
 import { BsTelephoneFill } from "react-icons/bs"
 
@@ -11,7 +11,7 @@ import { BsTelephoneFill } from "react-icons/bs"
 const InfoContact = () => {
     return (
         <>
-                <div className="container-fluid mt-5">
+                <div className="container-fluid pt-5 info-contact-bg">
                     <Row>
                         <Col xs={12} md={3}>
                             <div className="container">
