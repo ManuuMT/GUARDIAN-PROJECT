@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
+import Navbar from "../component/Header/Navbar/Navbar.jsx"
 import Main from "../component/Main/Main.jsx"
 
 export const About = () => {
@@ -9,6 +10,7 @@ export const About = () => {
 	return (
 		<>
 
+            <Navbar/>
 			<Main/>
 
 	    </>
