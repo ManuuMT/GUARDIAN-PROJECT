@@ -1,6 +1,6 @@
 import React from "react";
 import "./Intro.scss"
-import QuickMap from "./QuickMap/QuickMap.jsx"
+import Maps from "./Maps/Maps.jsx";
 import HeroTitle from "./HeroTitle/HeroTitle.jsx"
 
 const Intro = () => {
@@ -12,7 +12,7 @@ const Intro = () => {
         </div>
         
         <div className="col-md-6 col-sm-12 right-col">              
-            <QuickMap/>   
+            <Maps/>   
         </div>
     </div>
 </div>
