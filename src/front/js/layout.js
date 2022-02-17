@@ -7,7 +7,6 @@ import { About } from "./pages/About/About.jsx"
 import { Contact } from "./pages/Contact.jsx"
 
 //import Navbar from "./component/Header/Navbar/Navbar.jsx";
-
 import injectContext from "./store/appContext";
 
 const Layout = () => {
