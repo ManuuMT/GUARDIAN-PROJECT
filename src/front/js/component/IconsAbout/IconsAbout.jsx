@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonAbout = () => {
+const IconsAbout = () => {
     return (
 
         <>
@@ -11,4 +11,4 @@ const ButtonAbout = () => {
     );
 }
 
-export default ButtonAbout;
+export default IconsAbout;

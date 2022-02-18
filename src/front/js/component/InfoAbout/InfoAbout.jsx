@@ -1,7 +1,15 @@
 import React from "react";
 
+
 const InfoAbout = () => {
-    <HeaderAbout/>
+    return (
+
+        <>
+        
+        
+        </>
+
+    );
 }
 
 export default InfoAbout;
