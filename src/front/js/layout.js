@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/Home.jsx";
 import { Map } from "./pages/Map.jsx"
-import { About } from "./pages/About/About.jsx"
+import { About } from "./pages/About.jsx"
 import { Contact } from "./pages/Contact.jsx"
 
 //import Navbar from "./component/Header/Navbar/Navbar.jsx";
