@@ -34,9 +34,12 @@ const Navbar = () => {
                                  
               </ul>
           </div>
-          <div className="nav-right">
-              <button className="btn grad-btn" type="submit">Contact Us</button>
-          </div>
+
+          <Link to="Contact">
+                <div className="nav-right">
+                    <button className="btn grad-btn" type="submit">Sign In</button>
+                </div>
+          </Link>
       </nav>
     );
   };
