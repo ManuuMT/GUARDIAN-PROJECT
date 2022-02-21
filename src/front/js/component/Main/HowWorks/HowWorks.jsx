@@ -19,10 +19,10 @@ const HowWorks = () => {
                         índices de criminalidad mediante un mapa interactivo.</p>
                         <p className="">Nuestros objetivos:</p>
                         <ul>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
+                            <li>Hacer que las calles sean más seguras para los usuarios de Guardian</li>
+                            <li>Permitir a los usuarios añadir directamente sus datos sobre el mapa</li>
+                            <li>Ofrecer una interfaz y una agradable experiencia de usuario</li>
+                            <li>Crear una base de datos que permita a las instituciones conocer y actuar</li>
                         </ul>
                     </div>
                 </div>
