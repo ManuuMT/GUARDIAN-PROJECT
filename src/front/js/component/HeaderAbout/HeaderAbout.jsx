@@ -1,19 +1,21 @@
 import React from "react";
-import about1 from "../../../assets/img/HeaderAbout/about1.jpg";
-import { Button } from "react-bootstrap";
-
+import {  } from "react-bootstrap";
+import "./HeaderAbout.scss";
 const HeaderAbout = () => {
     return (
 
         <>
-            <div className="container-fluid imgHeader">
-                <img src={about1} className="" alt="..."/>
-                    <h5></h5>
-                    <p></p>
-                    <Button variant="primary" size="lg" className="">
-                        Large button
-                    </Button> 
+            <div className="container">
+                <div class="text-center">
+                    <div class="card-body bg-img">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn grad-btn mt-2">Go somewhere</a>
+                    </div>
+                </div>
             </div>
+
+
         </>
 
     );

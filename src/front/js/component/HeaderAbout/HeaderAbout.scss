@@ -1,4 +1,11 @@
-.imgHeader {
-    height: 100px;
-    width: 300px;
+.bg-img {
+    background-image: url(https://all.accor.com/loyalty-program/earn/assets/images/meeting_planner.jpg);
+    background-repeat: no-repeat;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    height: 700px;
+    opacity: 0.7;
+    margin-bottom: -100px;
+    filter:alpha(opacity=40); /* For IE8 and earlier */
 }
