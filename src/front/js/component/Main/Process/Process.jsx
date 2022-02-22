@@ -11,13 +11,15 @@ const Process = () => {
                 <div className="container text-white my-5">
                     <div className="row">
                         <div className="col-lg-6 align-self-center">
-                            <h2 className="">Put your trust in a tested <span className="grad">process</span></h2>
-                            <p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et magna aliquet, ultrices nulla condimentum, congue orci. Sed efficitur rutrum felis, ut molestie diam dapibus vitae. </p>
+                            <h2 className="">Cuál es el <span className="grad">proceso</span> detrás de Guardian?</h2>
+                            <p className="">Los usuarios pueden registrar sus incidentes (o aquellos que conocen y han 
+                            sido testigos) en la propia aplicación a través de un mapa interactivo con tan solo apretar 
+                            encima y añadir el tipo de incidente manteniendo así actualizado el mapa de la ciudad.</p>
                             <ul>
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Una vez abierta la aplicación, el usuario pica sobre el mapa</li>
+                                <li>Se introducen los datos ocurridos en su propia ubicación</li>
+                                <li>Se registran los datos y se representan</li>
+                                <li>El mapa permite filtrar los datos ofreciendo así mayor interactividad</li>
                             </ul>
                         </div>
                         <div className="col-lg-6">

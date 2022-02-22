@@ -13,7 +13,7 @@ const ContactView = () => {
                         </div>
                         <div className="col-lg-2"></div>
                         <div className="col-lg-5 col-md-12">
-                            <Form/>
+                            <Form />
                         </div>
                 </div>
             </div>

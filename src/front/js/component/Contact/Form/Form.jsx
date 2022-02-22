@@ -5,7 +5,8 @@ const Form = () => {
     return (
         <> 
               <div className="container text-white form-container py-5">
-                <div className="container">
+                   
+              <div className="container">
                     <h2 className="">Send us a message</h2>
                     <form>
                         <div class="form-group">
@@ -14,8 +15,8 @@ const Form = () => {
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                            <label for="exampleInputPassword1">Message</label>
+                            <input type="message" class="form-control" id="exampleInputPassword1" placeholder="Message" />
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" />
