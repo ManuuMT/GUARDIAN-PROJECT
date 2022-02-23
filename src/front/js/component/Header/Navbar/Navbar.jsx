@@ -17,21 +17,21 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
 
-              <Link to="/">
-                    <NavItem title="Home"/>
-              </Link>
-                
-              <Link to="Map">
-                 <NavItem title="Map"/>
-              </Link>
+                    <Link to="/">
+                            <NavItem title="Home"/>
+                    </Link>
+                        
+                    <Link to="Map">
+                        <NavItem title="Map"/>
+                    </Link>
 
-              <Link to="About">
-                 <NavItem title="About"/>
-              </Link>
+                    <Link to="About">
+                        <NavItem title="About"/>
+                    </Link>
 
-              <Link to="Contact">
-                  <NavItem title="Contact"/>
-              </Link>
+                    <Link to="Contact">
+                        <NavItem title="Contact"/>
+                    </Link>
                                  
               </ul>
           </div>
