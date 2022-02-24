@@ -4,20 +4,20 @@ import "./Form.scss";
 const Form = () => {
     return (
         <> 
-              <div className="container text-white bg-form form-container py-5">
+            <div className="container text-white bg-form form-container py-5">
                    
               <div className="container">
-                    <h2 className="">Send us a message</h2>
+                    <h3 className="">Send us a message</h3>
                     <form>
                         
                     <div className="row">
                         <div className="col-lg-6 col-md-12 form-group">
-                            <label for="exampleInputEmail1" className="py-3">Nombre</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                            <label for="exampleInputName" className="py-3">Nombre</label>
+                            <input type="name" className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Introduce tu nombre..."/>
                         </div>
                         <div className="col-lg-6 col-md-12 form-group">
                             <label for="exampleInputEmail1" className="py-3">Correo electrónico</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu correo..."/>
                         </div>
                     </div>
 
@@ -31,7 +31,7 @@ const Form = () => {
                             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                             <label className="form-check-label" for="exampleCheck1">Acepto Términos y Condiciones</label>
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn grad-btn">Submit</button>
                     </form>
                 </div>
             </div>
