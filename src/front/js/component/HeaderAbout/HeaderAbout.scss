@@ -7,6 +7,8 @@
 
 .imgHeader {
     opacity: 0.6;
+    border-bottom: 50px;
+    
 }
 
 .titleHeader {
@@ -19,3 +21,15 @@
     border-style: solid;
     border-color: green;
 }
+
+.cardVertically {
+    height: 100px;
+    align-items: center;
+}
+
+
+
+
+
+
+

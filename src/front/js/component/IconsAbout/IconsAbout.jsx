@@ -9,7 +9,7 @@ const IconsAbout = () => {
         <>
         
         <div>
-            <div className="container text-center ">
+            <div className="container text-center mt-5">
                 <div className="card-group">
                     <div className="card m-3 rounded">
                         <div className="card-body">
