@@ -50,3 +50,11 @@ def post_incident():
     db.session.commit()
     return "New incident recorded in the database.", 200
 
+@api.route('/incidents/<int:incident_id>', methods=['DELETE'])
+def delete_incident(incident_id):
+    incident = Incident.query.get(incident_id)
+    if incident is None:
+        raise APIException('Incident not found', status_code=404)
+    db.session.delete(incident)
+    db.session.commit()
+    return "Incident deleted from database", 200
