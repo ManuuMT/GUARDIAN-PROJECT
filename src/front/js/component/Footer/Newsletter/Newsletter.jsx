@@ -1,9 +1,9 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import "./Contact.scss"
+import "./Newsletter.scss"
 
 
-const Contact = () => {
+const Newsletter = () => {
     return (
         <>
             <div className="container-fluid contact-bg py-5">
@@ -30,4 +30,4 @@ const Contact = () => {
         </>
     );
 }
-export default Contact;
+export default Newsletter;

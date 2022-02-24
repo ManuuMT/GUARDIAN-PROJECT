@@ -1,12 +1,12 @@
 import React from "react";
-import Contact from "./Contact/Contact.jsx";
+import Newsletter from "./Newsletter/Newsletter.jsx";
 import Copyright from "./Copyright/Copyright.jsx";
 import InfoContact from "./InfoContact/InfoContact.jsx";
 
 const Footer = () => {
     return (
         <>
-            <Contact/>
+            <Newsletter/>
             <InfoContact/>
             <Copyright/>
         </>
