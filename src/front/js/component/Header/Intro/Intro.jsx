@@ -10,8 +10,8 @@ const Intro = () => {
         <div className="col-md-6 col-sm-12 left-col">
             <HeroTitle/>
         </div>
-        
-        <div className="col-md-6 col-sm-12 right-col">              
+        <div className="col-md-2 col-sm-12"></div>
+        <div className="col-md-4 col-sm-12 right-col">              
             <QuickMap/>   
         </div>
     </div>

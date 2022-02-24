@@ -16,6 +16,7 @@ export const About = () => {
 			<IconsAbout/>
 			<InfoAbout/>
 			<Footer/>
+
 	    </>
 	);
 };
