@@ -12,8 +12,8 @@ const Contact = () => {
                         <h3 className="left-col">Subscribe Our <strong className="grad">Newsletter</strong></h3>
                         <h3 className="left-col"> For Latest Updates</h3>
                     </div>
-                    <div class="row justify-content-center pt-3">
-                        <div class="col-6">
+                    <div className="row justify-content-center pt-3">
+                        <div className="col-6">
                                 <FloatingLabel
                                     controlId="floatingInput"
                                     label="Email address"
@@ -21,7 +21,7 @@ const Contact = () => {
                                     <Form.Control type="email" placeholder="name@example.com" />
                                 </FloatingLabel>
                         </div>
-                        <div class="col-1">
+                        <div className="col-1">
                         <button className="btn grad-btn mt-2">Subscribe</button>
                         </div>
                     </div>
