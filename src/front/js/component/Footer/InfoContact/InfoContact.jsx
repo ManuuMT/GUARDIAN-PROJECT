@@ -23,9 +23,8 @@ const InfoContact = () => {
                                         <h6></h6>
                                     </div>
                             </div>
-                            <p className="mt-3 left-col">Feel safe walking around your city</p>
+                            <p className="mt-3 left-col">Haciendo las calles más seguras</p>
                             </div>
-                            <p className="text-light"></p>
                         </Col>
                         <Col xs={1} md={9}>
                             <Table className="table table-borderless">
@@ -41,17 +40,16 @@ const InfoContact = () => {
                                     <tr className="left-col">
                                         <td>
                                             <ul className="list-unstyled me-2">
-                                                <li className="pb-3"><a className="text-light text-decoration-none" href=""><AiTwotoneMail className="icon"></AiTwotoneMail>info@theguardian.es</a></li>
-                                                <li><a className="text-light text-decoration-none" href=""><BsTelephoneFill className="icon"></BsTelephoneFill>+34 640 222 036</a></li>
+                                                <li className="pb-3"><a className="text-light text-decoration-none" href=""><AiTwotoneMail className="icon"></AiTwotoneMail>info@guardian.com</a></li>
+                                                <li><a className="text-light text-decoration-none" href=""><BsTelephoneFill className="icon"></BsTelephoneFill>+34 910 86 69 83</a></li>
                                             </ul>
                                         </td>
                                         <td>
                                             <ul className="list-unstyled me-3">
-                                                <li><a className="text-light text-decoration-none" href="">Innovation</a></li>
+                                                <li><a className="text-light text-decoration-none" href="">Home</a></li>
                                                 <li><a className="text-light text-decoration-none" href="">Map</a></li>
-                                                <li><a className="text-light text-decoration-none" href="">How works</a></li>
-                                                <li><a className="text-light text-decoration-none" href="">Features</a></li>
-                                                <li><a className="text-light text-decoration-none" href="">Testimonials</a></li>
+                                                <li><a className="text-light text-decoration-none" href="">About</a></li>
+                                                <li><a className="text-light text-decoration-none" href="">Contact</a></li>
                                             </ul>
                                         </td>
                                         <td>
