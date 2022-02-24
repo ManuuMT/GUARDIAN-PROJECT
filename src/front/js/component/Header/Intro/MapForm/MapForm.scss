@@ -1,0 +1,16 @@
+.title{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+.myInput{
+    height: 35px;
+    font-size: 15px;
+    color: rgb(204,204,204);
+    width: 350px;
+}
+
+.myInput:focus{
+    outline: none;
+    color: rgb(116, 111, 113);
+}

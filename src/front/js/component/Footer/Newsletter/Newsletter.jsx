@@ -12,8 +12,9 @@ const Newsletter = () => {
                         <h3 className="left-col">Súscribete a nuestra <strong className="grad">Newsletter</strong></h3>
                         <h3 className="left-col">con todas nuestras novedades</h3>
                     </div>
-                    <div class="row justify-content-center pt-3">
-                        <div class="col-6">
+                    
+                    <div className="row justify-content-center pt-3">
+                        <div className="col-6">
                                 <FloatingLabel
                                     controlId="floatingInput"
                                     label="Introduce tu correo"
@@ -21,8 +22,8 @@ const Newsletter = () => {
                                     <Form.Control type="email" placeholder="name@example.com" />
                                 </FloatingLabel>
                         </div>
-                        <div class="col-1">
-                        <button className="btn grad-btn mt-2">Apúntame!</button>
+                        <div className="col-1">
+                            <button className="btn grad-btn mt-2">Apúntame!</button>
                         </div>
                     </div>
                 </div>
