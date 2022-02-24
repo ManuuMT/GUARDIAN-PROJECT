@@ -5,9 +5,9 @@ const MapForm = () => {
 	const [inputLong, setInputLong] = useState("");
     const [inputLat, setInputLat] = useState("");
     const [inputDescrip, setInputDescrip] = useState("");
+    const [selectState, setSelect] = useState("Accidente-de-Transito");
 
 	// Changes the value of the input
-
     const validateInputName = event => {
 		setInputName(event.target.value);
 		checkEmpty(event);
@@ -30,12 +30,20 @@ const MapForm = () => {
     }
 
     const sendData = () => {
-        console.log("Nombre: " + inputName);
-        console.log("Long: " + inputLong);
-        console.log("Lat: " + inputLat);
-        console.log("Descripcion: " + inputDescrip);
+        let newIncident = {
+            "reported_by": inputName,
+            "category": selectState,
+            "longitude": inputLong,
+            "latitude": inputLat,
+            "description": inputDescrip  
+        }
+        console.log(newIncident);
     }
 
+    const handleChange = event => {
+        setSelect(event.target.value);
+    }
+    
 	return (
 		<>
 			<div className="container mt-5">
@@ -54,10 +62,10 @@ const MapForm = () => {
                 <div className="row my-3">
                     <div className="col">
                         <label className="title">¿Qué ha sucedido? *</label>
-                        <select className="row mx-2">
-                            <option value="robo">Robo/Asalto</option>
-                            <option value="accidente">Accidente de tránsito</option>
-                            <option value="pelea">Pelea callejera</option>
+                        <select value={selectState} onChange={handleChange} className="row mx-2">
+                            <option value="Robo-Asalto">Robo/Asalto</option>
+                            <option value="Accidente-de-Transito">Accidente de tránsito</option>
+                            <option value="Pelea-Callejera">Pelea callejera</option>
                         </select>
                     </div>
                 </div>
