@@ -30,15 +30,32 @@ const MapForm = () => {
     }
 
     const sendData = () => {
-        let newIncident = {
-            "reported_by": inputName,
-            "category": selectState,
-            "longitude": inputLong,
-            "latitude": inputLat,
-            "description": inputDescrip  
+        let body = {
+            reported_by: inputName,
+            category: selectState,
+            longitude: inputLong,
+            latitude: inputLat,
+            description: inputDescrip  
         }
-        console.log(newIncident);
+        console.log(body);
+        optimizedFetch("POST",JSON.stringify(body));
     }
+
+    const optimizedFetch = (fetchMethod, fetchBody) => {
+		const url = process.env.BACKEND_URL+"/api/incidents";
+        const header = {
+			method: fetchMethod,
+			body: fetchBody,
+			headers: {
+				"Content-Type": "application/json"
+			}
+		};
+        console.log(url);
+		fetch(url, header)
+			.then(res => res.json())
+			.then(data => console.log(data))
+			.catch(error => console.error("Ocurrió el siguiente error:"+error));
+	};
 
     const handleChange = event => {
         setSelect(event.target.value);

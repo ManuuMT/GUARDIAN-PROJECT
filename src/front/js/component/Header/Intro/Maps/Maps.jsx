@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import GoogleMaps from "simple-react-google-maps";
 
 
-export default class Maps extends Component {
-  render() {
+const Maps = () => {
+
+    console.log("Mapita cargado");
+
     return (
       <div className="container">
         <div className="map-title d-flex justify-content-center">
@@ -27,4 +29,5 @@ export default class Maps extends Component {
       </div>
     );
   }
-}
+
+export default Maps;
