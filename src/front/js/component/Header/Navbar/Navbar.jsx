@@ -18,19 +18,19 @@ const Navbar = () => {
               <ul className="navbar-nav">
 
                     <Link to="/">
-                            <NavItem title="Home"/>
+                            <NavItem title="Inicio"/>
                     </Link>
                         
                     <Link to="Map">
-                        <NavItem title="Map"/>
+                        <NavItem title="Mapa completo"/>
                     </Link>
 
                     <Link to="About">
-                        <NavItem title="About"/>
+                        <NavItem title="Nosotros"/>
                     </Link>
 
                     <Link to="Contact">
-                        <NavItem title="Contact"/>
+                        <NavItem title="Contacto"/>
                     </Link>
                                  
               </ul>
@@ -38,7 +38,7 @@ const Navbar = () => {
 
           <Link to="Contact">
                 <div className="nav-right">
-                    <button className="btn grad-btn" type="submit">Sign In</button>
+                    <button className="btn grad-btn" type="submit">¡Registrate!</button>
                 </div>
           </Link>
       </nav>

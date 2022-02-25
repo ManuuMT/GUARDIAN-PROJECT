@@ -6,6 +6,7 @@ const MapForm = () => {
     const [inputLat, setInputLat] = useState("");
     const [inputDescrip, setInputDescrip] = useState("");
     const [selectState, setSelect] = useState("Accidente-de-Transito");
+    const [opened, setOpened] = useState(true);
 
 	// Changes the value of the input
     const validateInputName = event => {
@@ -61,9 +62,11 @@ const MapForm = () => {
         setSelect(event.target.value);
     }
     
-	return (
+	return opened ? (
 		<>
-			<div className="container mt-5">
+            <button className="btn grad-btn" onClick={() => setOpened(false)}>-</button>
+
+			<div className="container mt-5 bg-form py-2">
                 <div className="row my-3">
                     <div className="col">
                         <label className="title">¿Cuál es tu nombre? *</label>
@@ -132,7 +135,9 @@ const MapForm = () => {
 				</div>
 			</div>
 		</>
-	);
+	) : (<button className="btn grad-btn" onClick={() => setOpened(true)}>
+    +
+  </button>);
 };
 
 export default MapForm;
