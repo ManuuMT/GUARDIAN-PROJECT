@@ -18,7 +18,7 @@ const FeatureItem = (prop) => {
   };
   
  FeatureItem.propTypes = {
-    icon: PropTypes.string,
+    icon: PropTypes.object,
     title: PropTypes.string,
     text: PropTypes.string
   };

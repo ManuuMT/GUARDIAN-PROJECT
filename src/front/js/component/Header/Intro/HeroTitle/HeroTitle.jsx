@@ -15,7 +15,7 @@ const HeroTitle = () => {
                 el nivel de seguridad en nuestras ciudades.</p>
 
                 <Link to="Map">
-                    <button className="btn grad-btn intro-btn mt-3"><a href="">Empezar</a></button>
+                    <button className="btn grad-btn intro-btn mt-3">Empezar</button>
                 </Link>
 
             </div>

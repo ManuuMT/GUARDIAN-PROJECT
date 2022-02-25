@@ -16,7 +16,6 @@ api = Blueprint('api', __name__)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
-    print("Este endpoint funca piola")
     response_body = {
         "message": "Hello! I'm a message that came from the GUARDIAN backend"
     }
