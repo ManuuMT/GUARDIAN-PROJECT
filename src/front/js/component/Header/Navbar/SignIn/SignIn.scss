@@ -4,6 +4,7 @@
     box-shadow: 0 0 0 0 rgb(42,7,27);
 }
 
-.modal-header, .modal-body, .modal-footer {
+.modal-content {
+    border-radius: 20px;
     background-color: #441830;
- }
+}
