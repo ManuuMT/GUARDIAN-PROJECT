@@ -12,9 +12,9 @@ class SignUp extends Component {
         return (
         <>
             <div className="d-flex align-items-center justify-content-center mx-2">
-            <Button className="grad-btn no-border" onClick={this.openModal}>Sign Up</Button>
+            <Button className="grad-btn no-border" onClick={this.openModal}>Registrar</Button>
             </div>
-            
+
             <Modal show={this.state.isOpen} onHide={this.closeModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>

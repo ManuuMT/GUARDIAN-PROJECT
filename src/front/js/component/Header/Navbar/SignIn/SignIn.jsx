@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Container } from "react-bootstrap";
 import './SignIn.scss';
 
 class SignIn extends Component {
@@ -12,15 +12,39 @@ class SignIn extends Component {
         return (
         <>
             <div className="d-flex align-items-center justify-content-center mx-2">
-                <Button className="grad-btn no-border" onClick={this.openModal}>Sign In</Button>
+                <Button className="grad-btn no-border" onClick={this.openModal}>Entrar</Button>
             </div>
             
-            <Modal show={this.state.isOpen} onHide={this.closeModal}>
+            <Modal show={this.state.isOpen} onHide={this.closeModal} className="text-white">
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Entrar</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>
+
+                    <Container className="modal-body">      
+                        <Container>
+                            <Container>
+                                <i className="fas fa-envelope prefix grey-text"></i>
+                                <label data-error="wrong" data-success="right">Your email</label>
+                            </Container>
+                            <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
+                        </Container>
+                    </Container>
+
+                    <Container className="modal-body">      
+                        <Container>
+                            <Container>
+                                <i className="fas fa-envelope prefix grey-text"></i>
+                                <label data-error="wrong" data-success="right">Your email</label>
+                            </Container>
+                            <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
+                        </Container>
+                    </Container>
+                   
+                </Modal.Body>
+            
                 <Modal.Footer>
+                    <Button variant="primary" onClick={this.closeModal}>Entrar</Button>
                     <Button variant="secondary" onClick={this.closeModal}>Close</Button>
                 </Modal.Footer>
             </Modal>
