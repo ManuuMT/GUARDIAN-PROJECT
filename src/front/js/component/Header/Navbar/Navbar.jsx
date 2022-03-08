@@ -2,6 +2,8 @@ import React from "react";
 import './Navbar.scss';
 import logo from '../../../../assets/img/logo-guardian.png';
 import NavItem from "./NavItem/NavItem.jsx";
+import SignIn from "./SignIn/SignIn.jsx";
+import SignUp from "./SignUp/SignUp.jsx";
 
 import { Link } from "react-router-dom";
 
@@ -36,11 +38,17 @@ const Navbar = () => {
               </ul>
           </div>
 
-          <Link to="Contact">
+          {/* <Link to="Contact"> */}
                 <div className="nav-right">
-                    <button className="btn grad-btn" type="submit">¡Registrate!</button>
+                    <div className="container d-flex">
+                            <SignIn/>
+                            <SignUp/>
+                    </div>
+                   
+                    {/* <button className="btn grad-btn" type="">Sign Up</button>
+                    <button className="btn grad-btn-outline mx-4" type="">Sign In</button> */}
                 </div>
-          </Link>
+          {/* </Link> */}
       </nav>
 
     );
