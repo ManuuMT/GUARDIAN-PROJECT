@@ -8,7 +8,7 @@ const IconsAbout = () => {
 
         <>
         
-        <div>
+        <div className="iconsMargin">
             <div className="container text-center mt-5">
                 <div className="card-group text-white">
                     <div className="card m-3 rounded bg-icons">
