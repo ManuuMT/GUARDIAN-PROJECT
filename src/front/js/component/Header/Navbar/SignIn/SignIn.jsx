@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import { Modal, Button, Container } from "react-bootstrap";
 import './SignIn.scss';
 
@@ -53,4 +53,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default SignIn;*/
