@@ -31,8 +31,7 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         setFormErrors(validate(formValues)); 
-        setIsSubmit(true)      
-        //setFormValues({username: "", email:"", password:""});
+        setIsSubmit(true);     
     }
 
     useEffect(() => {
@@ -69,95 +68,105 @@ const SignUp = () => {
 
 
 
-    return (
-
+    return (         
+                
         <>
                 <div className="d-flex align-items-center justify-content-center mx-2">
                     <Button className="grad-btn no-border" onClick={handleShow}>Registrar</Button>
                 </div>
 
-                <Modal show={show} onHide={handleClose} className="text-white" onSubmit={handleSubmit}>
-                    
+
                     {Object.keys(formErrors).length === 0 && isSubmit ? (
-                        <div className="">Sign in success</div>) : (
-
-                        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-                    )}
-
-
-                     <Modal.Header closeButton>
-                        <Modal.Title>Registrarse</Modal.Title>
-                    </Modal.Header>
-                   
-                    <Modal.Body>
                         
-                            <div className="container modal-body">      
-                                    <div className="container">
-                                        <div className="container">
-                                            <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Username</label>
+                        
+                        <Modal show={show} onHide={handleClose} className="text-white">Success!</Modal>
+                        
+                        
+                        
+                        ) : (
+
+                            <>
+
+                            <Modal show={show} onHide={handleClose} className="text-white" onSubmit={handleSubmit}>
+                               
+                                 <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+                               
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Registrarse</Modal.Title>
+                                </Modal.Header>
+                            
+                                <Modal.Body>
+                                    
+                                        <div className="container modal-body">      
+                                                <div className="container">
+                                                    <div className="container">
+                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                        <label data-error="wrong" data-success="right">Username</label>
+                                                    </div>
+                                                    <input type="text" className="form-control" placeholder="Introduce tu nombre" 
+                                                        name = "username"
+                                                        value={formValues.username}   
+                                                        onChange={handleChange}                        
+                                                        />
+                                                </div>
+                                                <p className="text-warning">{formErrors.username}</p>
                                         </div>
-                                        <input type="text" className="form-control" placeholder="Introduce tu nombre" 
-                                            name = "username"
-                                            value={formValues.username}   
-                                            onChange={handleChange}                        
-                                            />
-                                    </div>
-                                    <p className="text-warning">{formErrors.username}</p>
-                            </div>
 
-                            <div className="container modal-body">      
-                                    <div className="container">
-                                        <div className="container">
-                                            <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Email</label>
+                                        <div className="container modal-body">      
+                                                <div className="container">
+                                                    <div className="container">
+                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                        <label data-error="wrong" data-success="right">Email</label>
+                                                    </div>
+                                                    <input type="email" className="form-control" placeholder="Introduce tu correo" 
+                                                        name="email"
+                                                        value={formValues.email}  
+                                                        onChange={handleChange}                        
+                                                        />
+                                                </div>
+                                                <p className="text-warning">{formErrors.email}</p>
+
                                         </div>
-                                        <input type="email" className="form-control" placeholder="Introduce tu correo" 
-                                            name="email"
-                                            value={formValues.email}  
-                                            onChange={handleChange}                        
-                                            />
-                                    </div>
-                                    <p className="text-warning">{formErrors.email}</p>
 
-                            </div>
+                                        <div className="container modal-body">      
+                                                <div className="container">
+                                                    <div className="container">
+                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                        <label data-error="wrong" data-success="right">Password</label>
+                                                    </div>
+                                                    <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
+                                                        name="password"
+                                                        value={formValues.password}  
+                                                        onChange={handleChange}                        
+                                                        />
+                                                </div>
+                                                <p className="text-warning">{formErrors.password}</p>
 
-                            <div className="container modal-body">      
-                                    <div className="container">
-                                        <div className="container">
-                                            <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Password</label>
                                         </div>
-                                        <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
-                                            name="password"
-                                            value={formValues.password}  
-                                            onChange={handleChange}                        
-                                            />
-                                    </div>
-                                    <p className="text-warning">{formErrors.password}</p>
 
-                            </div>
-
-                            {/* <div className="container modal-body">      
-                                    <div className="container">
-                                        <div className="container">
-                                            <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Confirmar Password</label>
+                                        <div className="container modal-body">      
+                                                <div className="container">
+                                                    <div className="container">
+                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                        <label data-error="wrong" data-success="right">Confirmar Password</label>
+                                                    </div>
+                                                    <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
+                                                </div>
                                         </div>
-                                        <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
-                                    </div>
-                            </div> */}
-                    </Modal.Body>
-                    
-                    <Modal.Footer>
-                        <Button type="submit" onClick={handleSubmit}>Registrar</Button>
-                        <Button variant="secondary" onClick={handleClose}>Close</Button>
-                    </Modal.Footer>
+                                </Modal.Body>
+                                
+                                <Modal.Footer>
+                                    <Button type="submit" onClick={handleSubmit}>Registrar</Button>
+                                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                                </Modal.Footer>
 
-                </Modal>
+                            </Modal>
+
+                            </>
+                        )}
         </>
-
     );
 };
                         
 export default SignUp;
+
