@@ -5,6 +5,7 @@ import Geocode from "react-geocode";
 
 const Maps = () => {
     const [loader,setLoader] = useState(false);
+    const [apiLoaded,setApiLoader] = useState(false);
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
@@ -13,24 +14,29 @@ const Maps = () => {
 
     useEffect(() => {
         setLoader(true);
-    }, [store.finalArray])
+    }, [store.mapMarkers])
+
+    useEffect(() => {
+        setApiLoader(true);
+    }, [store.api])
     
+    if(apiLoaded){
+        Geocode.setApiKey(store.api);
+        Geocode.setLanguage("es");
+        Geocode.setRegion("es");
+        Geocode.setLocationType("ROOFTOP");
+        Geocode.fromAddress("calle velazquez 27, madrid").then(
+            (response) => {
+              const { lat, lng } = response.results[0].geometry.location;
+              console.log(lat, lng);
+            },
+            (error) => {
+              console.error(error);
+            }
+          );
+    }
     
-    Geocode.setApiKey(store.api);
-    Geocode.setLanguage("es");
-    Geocode.setRegion("es");
-    Geocode.setLocationType("ROOFTOP");
-/*
-    Geocode.fromAddress("Parque de El Retiro").then(
-        (response) => {
-          const { lat, lng } = response.results[0].geometry.location;
-          console.log(lat, lng);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-*/
+
     return (
       <div className="container">
         <div className="map-title d-flex justify-content-center">
@@ -44,7 +50,7 @@ const Maps = () => {
         style={{ height: "400px", width: "550px"}}
         zoom={12}
         center={store.mapCenter}
-        markers={store.finalArray}
+        markers={store.mapMarkers}
         className="map"
          />
         : <h1>Cargando mapa...</h1>
