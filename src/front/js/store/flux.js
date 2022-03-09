@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
             database: null,
-            message: null,
+            message: "mi mensaje",
+            api: "vacio",
             finalArray : [],
 			mapMarkers : [
                 { lat: 40.409711, lng: -3.692569 },
@@ -22,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
             getFetch : () => {
+                setStore({ api: process.env.API_KEY });
                 const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
                     method: "GET",

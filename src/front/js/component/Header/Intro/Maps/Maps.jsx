@@ -15,11 +15,12 @@ const Maps = () => {
         setLoader(true);
     }, [store.finalArray])
     
-    Geocode.setApiKey("AIzaSyB_e9nHaPbCdcWHup05GGWfvMfcODEYJTI");
+    
+    Geocode.setApiKey(store.api);
     Geocode.setLanguage("es");
     Geocode.setRegion("es");
     Geocode.setLocationType("ROOFTOP");
-
+/*
     Geocode.fromAddress("Parque de El Retiro").then(
         (response) => {
           const { lat, lng } = response.results[0].geometry.location;
@@ -29,7 +30,7 @@ const Maps = () => {
           console.error(error);
         }
       );
-
+*/
     return (
       <div className="container">
         <div className="map-title d-flex justify-content-center">
@@ -39,7 +40,7 @@ const Maps = () => {
         
         {loader ?
         <GoogleMaps
-        apiKey={"AIzaSyB_e9nHaPbCdcWHup05GGWfvMfcODEYJTI"}
+        apiKey={store.api}
         style={{ height: "400px", width: "550px"}}
         zoom={12}
         center={store.mapCenter}
