@@ -40,11 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     arrayMarkers.push(obj);
                     }
                 //console.log("Array de marcadores: " + JSON.stringify(arrayMarkers));
-                setStore({mapMarkers: arrayMarkers});
-
-            },
-            testGeoCode: () => {
-                
+                setStore({mapMarkers: arrayMarkers})
             }
         }
 	};

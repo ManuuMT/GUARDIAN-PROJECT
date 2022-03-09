@@ -1,24 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import Geocode from "react-geocode";
+import {Context} from "../../../../store/appContext.js"
 
 const MapForm = () => {
+    const { store, actions } = useContext(Context);
+
     const [inputName, setInputName] = useState("");
-	const [inputLong, setInputLong] = useState("");
-    const [inputLat, setInputLat] = useState("");
+	const [inputAddress, setInputAddress] = useState("");
     const [inputDescrip, setInputDescrip] = useState("");
     const [selectState, setSelect] = useState("Accidente-de-Transito");
-    const [opened, setOpened] = useState(true);
+    const [opened, setOpened] = useState(false);
 
-	// Changes the value of the input
+    
+    const geoCoder = () => {
+        Geocode.setApiKey(store.api);
+        Geocode.setLanguage("es");
+        Geocode.setRegion("es");
+        Geocode.setLocationType("ROOFTOP");
+        
+        Geocode.fromAddress(inputAddress)
+        .then((response) => {
+            let latlng = response.results[0].geometry.location;
+            console.log("Latitud de su direccion: " + latlng.lat);
+            console.log("Longitud de su direccion: " + latlng.lng);
+            sendData(latlng);
+        })
+        .catch((error) => console.error("Geocode lanzó el siguiente error: " + error));
+}
+
+	// Input validators
     const validateInputName = event => {
 		setInputName(event.target.value);
 		checkEmpty(event);
 	};
-    const validateInputLong = event => {
-		setInputLong(event.target.value);
-		checkEmpty(event);
-	};
-    const validateInputLat = event => {
-		setInputLat(event.target.value);
+    const validateInputAddress = event => {
+		setInputAddress(event.target.value);
 		checkEmpty(event);
 	};
     const validateInputDescrip = event => {
@@ -30,12 +46,15 @@ const MapForm = () => {
         console.error("El campo puede estar vacio");
     }
 
-    const sendData = () => {
+    const sendData = (obj) => {
+
+        console.log("Este es obj: " + obj);
+
         let body = {
             reported_by: inputName,
             category: selectState,
-            longitude: inputLong,
-            latitude: inputLat,
+            longitude: obj.lng,
+            latitude: obj.lat,
             description: inputDescrip  
         }
         console.log(body);
@@ -96,16 +115,9 @@ const MapForm = () => {
                         <input
                             className="row"
                             type="text"
-                            onChange={validateInputLong}
-                            value={inputLong}
-                            placeholder="Longitud "
-                        />
-                        <input
-                            className="row"
-                            type="text"
-                            onChange={validateInputLat}
-                            value={inputLat}
-                            placeholder="Latitud "
+                            onChange={validateInputAddress}
+                            value={inputAddress}
+                            placeholder="Calle, ciudad... "
                         />
                     </div>
                 </div>
@@ -127,7 +139,7 @@ const MapForm = () => {
 				<div className="row my-3">
 					<div className="col">
 						<button
-							onClick={() => sendData()}
+							onClick={() => geoCoder()}
 							className="btn btn-danger">
 							Enviar
 						</button>
