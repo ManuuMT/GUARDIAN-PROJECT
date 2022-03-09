@@ -41,7 +41,7 @@ const Navbar = () => {
           {/* <Link to="Contact"> */}
                 <div className="nav-right">
                     <div className="container d-flex">
-                            {/* <SignIn/> */}
+                            <SignIn/>
                             <SignUp/>
                     </div>
                    

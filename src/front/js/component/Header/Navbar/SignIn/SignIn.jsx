@@ -1,56 +1,89 @@
-/*import React, { Component } from "react";
-import { Modal, Button, Container } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 import './SignIn.scss';
 
-class SignIn extends Component {
- 
-  state = {isOpen: false};
-  openModal = () => this.setState({ isOpen: true });
-  closeModal = () => this.setState({ isOpen: false });
+const SignIn = () => {
 
-  render() {
-        return (
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+
         <>
-            <div className="d-flex align-items-center justify-content-center mx-2">
-                <Button className="grad-btn no-border" onClick={this.openModal}>Entrar</Button>
-            </div>
-            
-            <Modal show={this.state.isOpen} onHide={this.closeModal} className="text-white">
-                <Modal.Header closeButton>
-                    <Modal.Title>Entrar</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+                <div className="d-flex align-items-center justify-content-center mx-2">
+                    <Button className="grad-btn no-border" onClick={handleShow}>Entrar</Button>
+                </div>
 
-                    <Container className="modal-body">      
-                        <Container>
-                            <Container>
-                                <i className="fas fa-envelope prefix grey-text"></i>
-                                <label data-error="wrong" data-success="right">Your email</label>
-                            </Container>
-                            <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
-                        </Container>
-                    </Container>
-
-                    <Container className="modal-body">      
-                        <Container>
-                            <Container>
-                                <i className="fas fa-envelope prefix grey-text"></i>
-                                <label data-error="wrong" data-success="right">Your email</label>
-                            </Container>
-                            <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
-                        </Container>
-                    </Container>
+                <Modal show={show} onHide={handleClose} className="text-white" onSubmit={handleClose}>
+                                
+                     <Modal.Header closeButton>
+                        <Modal.Title>Entrar</Modal.Title>
+                    </Modal.Header>
                    
-                </Modal.Body>
-            
-                <Modal.Footer>
-                    <Button variant="primary" onClick={this.closeModal}>Entrar</Button>
-                    <Button variant="secondary" onClick={this.closeModal}>Close</Button>
-                </Modal.Footer>
-            </Modal>
-        </>
-    );
-  }
-}
+                    <Modal.Body>
+                        
+                            <div className="container modal-body">      
+                                    <div className="container">
+                                        <div className="container">
+                                            <i className="fas fa-envelope prefix grey-text"></i>
+                                            <label data-error="wrong" data-success="right">Username</label>
+                                        </div>
+                                        <input type="text" className="form-control" placeholder="Introduce tu nombre" 
+                                            name = "username"                                          
+                                            />
+                                    </div>                               
+                            </div>
 
-export default SignIn;*/
+                            <div className="container modal-body">      
+                                    <div className="container">
+                                        <div className="container">
+                                            <i className="fas fa-envelope prefix grey-text"></i>
+                                            <label data-error="wrong" data-success="right">Email</label>
+                                        </div>
+                                        <input type="email" className="form-control" placeholder="Introduce tu correo" 
+                                            name="email"
+                                                                 
+                                            />
+                                    </div>
+
+                            </div>
+
+                            <div className="container modal-body">      
+                                    <div className="container">
+                                        <div className="container">
+                                            <i className="fas fa-envelope prefix grey-text"></i>
+                                            <label data-error="wrong" data-success="right">Password</label>
+                                        </div>
+                                        <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
+                                            name="password"
+                                            />
+                                    </div>
+                            </div>
+                            <div className="container modal-body">      
+                                    <div className="container">
+                                        <div className="container">
+                                            <i className="fas fa-envelope prefix grey-text"></i>
+                                            <label data-error="wrong" data-success="right">Password</label>
+                                        </div>
+                                        <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
+                                            name="password2"
+                                            />
+                                    </div>
+                            </div>
+                    </Modal.Body>
+                    
+                    <Modal.Footer>
+                        <Button type="submit" onClick={handleClose}>Registrar</Button>
+                        <Button variant="secondary" onClick={handleClose}>Close</Button>
+                    </Modal.Footer>
+
+                </Modal>
+        </>
+
+    );
+};
+                        
+export default SignIn;
