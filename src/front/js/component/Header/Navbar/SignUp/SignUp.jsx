@@ -66,8 +66,6 @@ const SignUp = () => {
         return errors; 
     };
 
-
-
     return (         
                 
         <>
@@ -78,18 +76,13 @@ const SignUp = () => {
 
                     {Object.keys(formErrors).length === 0 && isSubmit ? (
                         
-                        
                         <Modal show={show} onHide={handleClose} className="text-white">Success!</Modal>
-                        
-                        
                         
                         ) : (
 
                             <>
 
                             <Modal show={show} onHide={handleClose} className="text-white" onSubmit={handleSubmit}>
-                               
-                                 <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
                                
                                 <Modal.Header closeButton>
                                     <Modal.Title>Registrarse</Modal.Title>
