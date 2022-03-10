@@ -5,6 +5,7 @@ import { Home } from "./pages/Home.jsx";
 import { Map } from "./pages/Map.jsx"
 import { About } from "./pages/About.jsx"
 import { Contact } from "./pages/Contact.jsx"
+import { Dashboard } from "./pages/Dashboard.jsx"
 
 //import Navbar from "./component/Header/Navbar/Navbar.jsx";
 import injectContext from "./store/appContext";
@@ -30,6 +31,10 @@ const Layout = () => {
 
                     <Route exact path="/Contact">
 						<Contact/>
+					</Route>
+
+					<Route exact path="/Dashboard">
+						<Dashboard/>
 					</Route>
 
 				</Switch>

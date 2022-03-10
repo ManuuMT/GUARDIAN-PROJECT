@@ -34,6 +34,10 @@ const Navbar = () => {
                     <Link to="Contact">
                         <NavItem title="Contacto"/>
                     </Link>
+
+                    <Link to="Dashboard">
+                        <NavItem title="Dashboard"/>
+                    </Link>
                                  
               </ul>
           </div>
