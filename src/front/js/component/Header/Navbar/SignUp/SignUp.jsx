@@ -65,6 +65,35 @@ const SignUp = () => {
         return errors; 
     };
 
+
+    //fetch
+    const sendData = () => {
+        let body = {
+            username: formValues.username,
+            email: formValues.email,
+            password: formValues.password
+        }
+        console.log(body);
+        optimizedFetch("POST",JSON.stringify(body));
+    }
+
+    const optimizedFetch = (fetchMethod, fetchBody) => {
+		const url = "https://3001-manuumt-guardian-8uiqrwz3hsc.ws-eu34.gitpod.io/api/user";
+        const header = {
+			method: fetchMethod,
+			body: fetchBody,
+			headers: {
+				"Content-Type": "application/json"
+			}
+		};
+        console.log(url); /*prueba*/
+		fetch(url, header)
+			.then(res => res.json()) /*obtendra respuesta servidor*/
+			.then(data => console.log(data))
+			.catch(error => console.error("Ocurrió el siguiente error:"+error));
+	};
+
+
     return (         
                 
         <>
@@ -76,6 +105,7 @@ const SignUp = () => {
                     {Object.keys(formErrors).length === 0 && isSubmit ? (
                         
                         <Modal show={show} onHide={handleClose} className="text-white">Success!</Modal>
+                        
                         
                         ) : (
 
@@ -148,7 +178,7 @@ const SignUp = () => {
                                 </Modal.Body>
                                 
                                 <Modal.Footer>
-                                    <Button type="submit" onClick={handleSubmit}>Registrar</Button>
+                                    <Button type="submit" onClick={() => sendData()}>Registrar</Button>
                                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                                 </Modal.Footer>
 

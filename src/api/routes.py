@@ -1,18 +1,8 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, Incident
+from api.models import db, Incident, User
 from api.utils import generate_sitemap, APIException
 
-#import os
-#from flask import Flask, request, jsonify, url_for
-#from flask_migrate import Migrate
-#from flask_swagger import swagger
-#from flask_cors import CORS
-#from utils import APIException, generate_sitemap
-#from admin import setup_admin
-#from models import db, Incident
-
 api = Blueprint('api', __name__)
-
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -33,6 +23,7 @@ def get_all():
 def post_incident():
     body = request.get_json()
 
+    #comprobar que esta todo lo que necesito
     if body is None:
         raise APIException("You need to specify the request body as a json object", status_code=400)
     if 'reported_by' not in body:
@@ -44,10 +35,11 @@ def post_incident():
     if 'latitude' not in body:
         raise APIException('You need to specify the longitude of the incident', status_code=400)
         
+    #en mi caso sera User(datos de la tabla modelo)
     new_incident = Incident(reported_by=body['reported_by'],category=body['category'],description=body['description'],longitude=body['longitude'],latitude=body['latitude'],)
     db.session.add(new_incident)
     db.session.commit()
-    return "New incident recorded in the database.", 200
+    return "New incident recorded in the database.", 200 #respuesta de la API
 
 @api.route('/incidents/<int:incident_id>', methods=['DELETE'])
 def delete_incident(incident_id):
@@ -57,3 +49,32 @@ def delete_incident(incident_id):
     db.session.delete(incident)
     db.session.commit()
     return "Incident deleted from database", 200
+
+
+
+
+@api.route('/user', methods=['GET'])
+def get_user():
+    query = User.query.all()
+    all_user = list(map(lambda x: x.serialize(), query))
+    return jsonify(all_user), 200
+
+@api.route('/user', methods=['POST'])
+def post_user():
+    body = request.get_json()
+
+    #comprobar que esta todo lo que necesito
+    if body is None:
+        raise APIException("You need to specify the request body as a json object", status_code=400)
+    if 'username' not in body:
+        raise APIException('You need to write some name', status_code=400)
+    if 'email' not in body:
+        raise APIException('You need to specify some category', status_code=400)     
+    if 'password' not in body:
+        raise APIException('You need to specify the password of the user', status_code=400)
+    
+    #en mi caso sera User(datos de la tabla modelo)
+    new_user = User(username=body['username'],email=body['email'],password=body['password'])
+    db.session.add(new_user)
+    db.session.commit()
+    return "New incident recorded in the database.", 200 #respuesta de la API

@@ -43,7 +43,7 @@ const MapForm = () => {
     }
 
     const optimizedFetch = (fetchMethod, fetchBody) => {
-		const url = process.env.BACKEND_URL+"/api/incidents";
+		const url = process.env.BACKEND_URL+"/api/incidents"; //en mi caso será /api/user
         const header = {
 			method: fetchMethod,
 			body: fetchBody,
@@ -51,9 +51,9 @@ const MapForm = () => {
 				"Content-Type": "application/json"
 			}
 		};
-        console.log(url);
+        console.log(url); /*prueba*/
 		fetch(url, header)
-			.then(res => res.json())
+			.then(res => res.json()) /*obtendra respuesta servidor*/
 			.then(data => console.log(data))
 			.catch(error => console.error("Ocurrió el siguiente error:"+error));
 	};
