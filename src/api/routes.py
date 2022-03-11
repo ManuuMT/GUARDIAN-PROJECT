@@ -44,7 +44,7 @@ def post_incident():
     if 'latitude' not in body:
         raise APIException('You need to specify the longitude of the incident', status_code=400)
         
-    new_incident = Incident(reported_by=body['reported_by'],category=body['category'],description=body['description'],longitude=body['longitude'],latitude=body['latitude'],)
+    new_incident = Incident(reported_by=body['reported_by'],category=body['category'],description=body['description'],longitude=body['longitude'],latitude=body['latitude'],address=body['address'],)
     db.session.add(new_incident)
     db.session.commit()
     return "New incident recorded in the database.", 200

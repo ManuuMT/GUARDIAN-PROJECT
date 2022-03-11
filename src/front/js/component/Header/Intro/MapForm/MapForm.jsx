@@ -13,7 +13,7 @@ const MapForm = () => {
 
     
     const geoCoder = () => {
-        Geocode.setApiKey(store.api);
+        //Geocode.setApiKey(store.api);
         Geocode.setLanguage("es");
         Geocode.setRegion("es");
         Geocode.setLocationType("ROOFTOP");
@@ -55,7 +55,8 @@ const MapForm = () => {
             category: selectState,
             longitude: obj.lng,
             latitude: obj.lat,
-            description: inputDescrip  
+            description: inputDescrip,
+            address: inputAddress
         }
         console.log(body);
         optimizedFetch("POST",JSON.stringify(body));

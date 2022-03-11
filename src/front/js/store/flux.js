@@ -4,10 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             message: "Test",
             api: null,
             mapMarkers : [],
-            mapCenter : {
-                lat: 40.4127355,
-                lng: -3.695428
-                }
+            mapCenter : {lat: 40.4127355, lng: -3.695428}
 		},
 		
         actions: {
@@ -19,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
             getFetch : () => {
                 setStore({ api: process.env.API_KEY });
-                const url = process.env.BACKEND_URL + "/api/incidents";
+                /*const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
                     method: "GET",
                     headers: {
@@ -30,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 fetch(url, header)
                     .then(res => res.json())
                     .then(data => getActions().fetchAux(data))
-                    .catch(error => console.error("Error en fn getfetch: " + error));   
+                    .catch(error => console.error("Error en fn getfetch: " + error));   */
             },
             fetchAux: (str) => {
                 let arrayMarkers = [];
@@ -47,3 +44,5 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+
+

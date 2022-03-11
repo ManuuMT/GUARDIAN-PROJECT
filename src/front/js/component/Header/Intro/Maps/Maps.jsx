@@ -24,7 +24,7 @@ const Maps = () => {
         
         {loader ?
         <GoogleMaps
-        apiKey={store.api}
+        //apiKey={store.api}
         style={{ height: "400px", width: "550px"}}
         zoom={12}
         center={store.mapCenter}
