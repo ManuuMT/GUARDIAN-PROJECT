@@ -71,6 +71,12 @@ const TestMap = () => {
     setCenter(place.pos)
   };
 
+    const chooseColor = type => {
+        if(type=="Robo-Asalto") return "green";
+        if(type=="Accidente-de-Transito") return "blue";
+        if(type=="Pelea-Callejera") return "red";
+    };
+
   const renderMap = () => {
     return (
       <>
@@ -103,7 +109,7 @@ const TestMap = () => {
                 }, opts);
               
                 marker.setIcon(customIcon({
-                  fillColor: 'green',
+                  fillColor: chooseColor(place.category),
                   strokeColor: 'white'
                 }));
                 return markerLoadHandler(marker, place)
@@ -118,8 +124,8 @@ const TestMap = () => {
               onCloseClick={() => setInfoOpen(false)}
             >
               <div>
-                <h5>{selectedPlace.id}</h5>
-                <div><p>{selectedPlace.name}{": "}{selectedPlace.text}</p></div>
+                <p><strong>{selectedPlace.id}</strong></p>
+                <div><p>{selectedPlace.category}<br></br>{"- "}{selectedPlace.name}{": "}<br></br>{selectedPlace.text}</p></div>
               </div>
             </InfoWindow>
           )}

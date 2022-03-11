@@ -37,7 +37,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                         id: str[i].address,
                         pos: {lat: parseFloat(str[i].latitude), lng: parseFloat(str[i].longitude)},
                         text: str[i].description,
-                        name: str[i].reported_by
+                        name: str[i].reported_by,
+                        category: str[i].category
                     };
                     
                     arrayOfObj.push(obj);
