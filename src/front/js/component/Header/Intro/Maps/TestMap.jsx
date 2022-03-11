@@ -17,22 +17,20 @@ const TestMap = () => {
   const [zoom, setZoom] = useState(5);
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
+    const [data, setData] = useState(store.database);
 
   // Load the Google maps scripts
   const { isLoaded } = useLoadScript({googleMapsApiKey: store.api});
 
   // The places I want to create markers for.
   // This could be a data-driven prop.
-  const myPlaces = [
-    { id: "place1", text:"Robo", pos: { lat: 40.409711, lng: -3.692569 } },
-    { id: "place2", text:"Asalto", pos: { lat: 40.412072, lng: -3.676463 } },
-    { id: "place3", text:"Accidente", pos: { lat: 40.451824, lng: -3.690759 } }
-  ];
+
+//const myPlaces = store.database;
 
   // Iterate myPlaces to size, center, and zoom map to contain all markers
   const fitBounds = map => {
     const bounds = new window.google.maps.LatLngBounds();
-    myPlaces.map(place => {
+    data.map(place => {
       bounds.extend(place.pos);
       return place.id;
     });
@@ -90,7 +88,7 @@ const TestMap = () => {
             width: "100%"
           }}
         >
-          {myPlaces.map(place => (
+          {data.map(place => (
             <Marker
               key={place.id}
               position={place.pos}
@@ -121,7 +119,7 @@ const TestMap = () => {
             >
               <div>
                 <h5>{selectedPlace.id}</h5>
-                <div>{selectedPlace.text}</div>
+                <div><p>{selectedPlace.name}{": "}{selectedPlace.text}</p></div>
               </div>
             </InfoWindow>
           )}

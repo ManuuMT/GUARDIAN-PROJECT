@@ -13,7 +13,7 @@ const MapForm = () => {
 
     
     const geoCoder = () => {
-        //Geocode.setApiKey(store.api);
+        Geocode.setApiKey(store.api);
         Geocode.setLanguage("es");
         Geocode.setRegion("es");
         Geocode.setLocationType("ROOFTOP");
@@ -74,7 +74,10 @@ const MapForm = () => {
         console.log(url);
 		fetch(url, header)
 			.then(res => res.json())
-			.then(data => console.log(data))
+			.then(data => {
+                console.log("Datos enviados: " + data);
+                actions.getFetch();
+            })
 			.catch(error => console.error("Ocurrió el siguiente error:"+error));
 	};
 

@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
             message: "Test",
             api: null,
-            mapMarkers : [],
+            database : [],
             mapCenter : {lat: 40.4127355, lng: -3.695428}
 		},
 		
@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
             getFetch : () => {
                 setStore({ api: process.env.API_KEY });
-                /*const url = process.env.BACKEND_URL + "/api/incidents";
+                const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
                     method: "GET",
                     headers: {
@@ -27,17 +27,23 @@ const getState = ({ getStore, getActions, setStore }) => {
                 fetch(url, header)
                     .then(res => res.json())
                     .then(data => getActions().fetchAux(data))
-                    .catch(error => console.error("Error en fn getfetch: " + error));   */
+                    .catch(error => console.error("Error en funcion getfetch: " + error));
             },
             fetchAux: (str) => {
-                let arrayMarkers = [];
+                let arrayOfObj = [];
                 for(let i in str) {
                     //console.log("ID: " + str[i].id);
-                    let obj = {lat: parseFloat(str[i].latitude), lng: parseFloat(str[i].longitude)};
-                    arrayMarkers.push(obj);
+                    let obj = {
+                        id: str[i].address,
+                        pos: {lat: parseFloat(str[i].latitude), lng: parseFloat(str[i].longitude)},
+                        text: str[i].description,
+                        name: str[i].reported_by
+                    };
+                    
+                    arrayOfObj.push(obj);
                     }
                 //console.log("Array de marcadores: " + JSON.stringify(arrayMarkers));
-                setStore({mapMarkers: arrayMarkers})
+                setStore({database: arrayOfObj})
             }
         }
 	};
