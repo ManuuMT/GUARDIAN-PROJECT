@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     
                     arrayOfObj.push(obj);
                     }
-                //console.log("Array de marcadores: " + JSON.stringify(arrayMarkers));
+                //console.log("Array de marcadores: " + JSON.stringify(arrayOfObj));
                 setStore({database: arrayOfObj})
             }
         }

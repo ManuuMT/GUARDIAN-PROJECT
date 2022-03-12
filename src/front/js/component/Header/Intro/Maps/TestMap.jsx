@@ -1,52 +1,61 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../../../store/appContext.js";
 
 // We will use these things from the lib
 // https://react-google-maps-api-docs.netlify.com/
-import {useLoadScript, GoogleMap, Marker, InfoWindow} from "@react-google-maps/api";
+import {
+  useLoadScript,
+  GoogleMap,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 
 const TestMap = () => {
-  
   const { store, actions } = useContext(Context);
-  
+
+  useEffect(() => {
+    actions.getFetch();
+  }, []);
+
   // The things we need to track in state
-  const [mapRef, setMapRef] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [markerMap, setMarkerMap] = useState({});
   const [center, setCenter] = useState(store.mapCenter);
   const [zoom, setZoom] = useState(5);
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
-    const [data, setData] = useState(store.database);
+  //const [data, setData] = useState(store.database);
 
   // Load the Google maps scripts
-  const { isLoaded } = useLoadScript({googleMapsApiKey: store.api});
+  const { isLoaded } = useLoadScript({ googleMapsApiKey: store.api });
 
   // The places I want to create markers for.
   // This could be a data-driven prop.
 
-//const myPlaces = store.database;
+  //const myPlaces = store.database;
+
+  useEffect(() => {
+    console.log(`Loader: ${isLoaded}`);
+  }, [isLoaded]);
 
   // Iterate myPlaces to size, center, and zoom map to contain all markers
-  const fitBounds = map => {
+  const fitBounds = (map) => {
     const bounds = new window.google.maps.LatLngBounds();
-    data.map(place => {
+    store.database.map((place) => {
       bounds.extend(place.pos);
       return place.id;
     });
     map.fitBounds(bounds);
   };
 
-  const loadHandler = map => {
-    // Store a reference to the google map instance in state
-    setMapRef(map);
+  const loadHandler = (map) => {
     // Fit map bounds to contain all markers
     fitBounds(map);
   };
 
   // We have to create a mapping of our places to actual Marker objects
   const markerLoadHandler = (marker, place) => {
-    return setMarkerMap(prevState => {
+    return setMarkerMap((prevState) => {
       return { ...prevState, [place.id]: marker };
     });
   };
@@ -68,14 +77,14 @@ const TestMap = () => {
     }
 
     // if you want to center the selected Marker
-    setCenter(place.pos)
+    setCenter(place.pos);
   };
 
-    const chooseColor = type => {
-        if(type=="Robo-Asalto") return "green";
-        if(type=="Accidente-de-Transito") return "blue";
-        if(type=="Pelea-Callejera") return "red";
-    };
+  const chooseColor = (type) => {
+    if (type == "Robo-Asalto") return "green";
+    if (type == "Accidente-de-Transito") return "blue";
+    if (type == "Pelea-Callejera") return "red";
+  };
 
   const renderMap = () => {
     return (
@@ -86,35 +95,41 @@ const TestMap = () => {
           // Save the current center position in state
           //onCenterChanged={() => setCenter(mapRef.getCenter().toJSON())}
           // Save the user's map click position
-          onClick={e => setClickedLatLng(e.latLng.toJSON())}
+          onClick={(e) => setClickedLatLng(e.latLng.toJSON())}
           center={center}
           zoom={zoom}
           mapContainerStyle={{
             height: "70vh",
-            width: "100%"
+            width: "100%",
           }}
         >
-          {data.map(place => (
+          {store.database.map((place) => (
             <Marker
               key={place.id}
               position={place.pos}
-              onLoad={marker => {
-                const customIcon = (opts) => Object.assign({
-                  path: 'M12.75 0l-2.25 2.25 2.25 2.25-5.25 6h-5.25l4.125 4.125-6.375 8.452v0.923h0.923l8.452-6.375 4.125 4.125v-5.25l6-5.25 2.25 2.25 2.25-2.25-11.25-11.25zM10.5 12.75l-1.5-1.5 5.25-5.25 1.5 1.5-5.25 5.25z',
-                  fillColor: '#34495e',
-                  fillOpacity: 1,
-                  strokeColor: '#000',
-                  strokeWeight: 1,
-                  scale: 1,
-                }, opts);
-              
-                marker.setIcon(customIcon({
-                  fillColor: chooseColor(place.category),
-                  strokeColor: 'white'
-                }));
-                return markerLoadHandler(marker, place)
+              onLoad={(marker) => {
+                const customIcon = (opts) =>
+                  Object.assign(
+                    {
+                      path: "M12.75 0l-2.25 2.25 2.25 2.25-5.25 6h-5.25l4.125 4.125-6.375 8.452v0.923h0.923l8.452-6.375 4.125 4.125v-5.25l6-5.25 2.25 2.25 2.25-2.25-11.25-11.25zM10.5 12.75l-1.5-1.5 5.25-5.25 1.5 1.5-5.25 5.25z",
+                      fillColor: "#34495e",
+                      fillOpacity: 1,
+                      strokeColor: "#000",
+                      strokeWeight: 1,
+                      scale: 1,
+                    },
+                    opts
+                  );
+
+                marker.setIcon(
+                  customIcon({
+                    fillColor: chooseColor(place.category),
+                    strokeColor: "white",
+                  })
+                );
+                return markerLoadHandler(marker, place);
               }}
-              onClick={event => markerClickHandler(event, place)}
+              onClick={(event) => markerClickHandler(event, place)}
             />
           ))}
 
@@ -124,8 +139,20 @@ const TestMap = () => {
               onCloseClick={() => setInfoOpen(false)}
             >
               <div>
-                <p><strong>{selectedPlace.id}</strong></p>
-                <div><p>{selectedPlace.category}<br></br>{"- "}{selectedPlace.name}{": "}<br></br>{selectedPlace.text}</p></div>
+                <p>
+                  <strong>{selectedPlace.id}</strong>
+                </p>
+                <div>
+                  <p>
+                    {selectedPlace.category}
+                    <br></br>
+                    {"- "}
+                    {selectedPlace.name}
+                    {": "}
+                    <br></br>
+                    {selectedPlace.text}
+                  </p>
+                </div>
               </div>
             </InfoWindow>
           )}

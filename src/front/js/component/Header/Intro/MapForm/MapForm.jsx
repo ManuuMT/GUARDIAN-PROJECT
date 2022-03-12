@@ -78,7 +78,7 @@ const MapForm = () => {
                 console.log("Datos enviados: " + data);
                 actions.getFetch();
             })
-			.catch(error => console.error("Ocurrió el siguiente error:"+error));
+			.catch(error => console.error("Ocurrió el siguiente error: "+error));
 	};
 
     const handleChange = event => {
