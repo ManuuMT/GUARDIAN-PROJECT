@@ -78,3 +78,12 @@ def post_user():
     db.session.add(new_user)
     db.session.commit()
     return "New incident recorded in the database.", 200 #respuesta de la API
+
+#@api.route('/user/<int:id>', methods=['DELETE'])
+#def delete_user(id):
+ #   user = User.query.get(id)
+  #  if user is None:
+  #      raise APIException('User not found', status_code=404)
+  #  db.session.delete(user)
+  #  db.session.commit()
+  #  return "User was deleted from database", 200

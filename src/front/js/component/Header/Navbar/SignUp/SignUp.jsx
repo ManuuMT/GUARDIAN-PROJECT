@@ -21,17 +21,10 @@ const SignUp = () => {
 
 
     const handleChange = (e) => {
-
         const {name, value} = e.target;
         setFormValues({...formValues, [name]:value});
         console.log(formValues);
     };
-
-    const handleSubmit = (e) => {
-        e.preventDefault(); 
-        setFormErrors(validate(formValues)); 
-        setIsSubmit(true);     
-    }
 
     useEffect(() => {
         console.log(formErrors); 
@@ -75,6 +68,8 @@ const SignUp = () => {
         }
         console.log(body);
         optimizedFetch("POST",JSON.stringify(body));
+        setFormErrors(validate(formValues)); 
+        setIsSubmit(true);      
     }
 
     const optimizedFetch = (fetchMethod, fetchBody) => {
@@ -111,7 +106,7 @@ const SignUp = () => {
 
                             <>
 
-                            <Modal show={show} onHide={handleClose} className="text-white" onSubmit={handleSubmit}>
+                            <Modal show={show} onHide={handleClose} className="text-white">
                                
                                 <Modal.Header closeButton>
                                     <Modal.Title>Registrarse</Modal.Title>
