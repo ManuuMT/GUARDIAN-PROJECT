@@ -24,15 +24,11 @@ const TestMap = () => {
   const [zoom, setZoom] = useState(5);
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
-  //const [data, setData] = useState(store.database);
+  const [select, setSelect] =useState();
+
 
   // Load the Google maps scripts
   const { isLoaded } = useLoadScript({ googleMapsApiKey: store.api });
-
-  // The places I want to create markers for.
-  // This could be a data-driven prop.
-
-  //const myPlaces = store.database;
 
   useEffect(() => {
     console.log(`Loader: ${isLoaded}`);
@@ -86,14 +82,24 @@ const TestMap = () => {
     if (type == "Pelea-Callejera") return "red";
   };
 
+    const handleChange = event => {
+        setSelect(event.target.value);
+    }
+
+    const changeCity = () => {
+        if(select=="paris") setCenter(store.cities.paris);
+        if(select=="madrid") setCenter(store.cities.madrid);
+        if(select=="malaga") setCenter(store.cities.malaga);
+        if(select=="berlin") setCenter(store.cities.berlin);
+        setZoom(12);
+    }
+
   const renderMap = () => {
     return (
       <>
         <GoogleMap
           // Do stuff on map initial laod
           onLoad={loadHandler}
-          // Save the current center position in state
-          //onCenterChanged={() => setCenter(mapRef.getCenter().toJSON())}
           // Save the user's map click position
           onClick={(e) => setClickedLatLng(e.latLng.toJSON())}
           center={center}
@@ -153,7 +159,7 @@ const TestMap = () => {
                     {selectedPlace.text}
                   </p>
                 </div>
-              </div>
+          </div>
             </InfoWindow>
           )}
         </GoogleMap>
@@ -165,8 +171,16 @@ const TestMap = () => {
           </h3>
         )}
 
+        <select value={select} onChange={handleChange}>
+            <option value="madrid">Madrid</option>
+            <option value="malaga">Málaga</option>
+            <option value="paris">París</option>
+            <option value="berlin">Berlín</option>
+        </select>
+        
+        <button className="btn btn-danger" onClick={() => changeCity()}>Cambiar ciudad</button>
         {/* Position of the user's map click */}
-        {selectedPlace && <h3>Selected Marker: {selectedPlace.id}</h3>}
+        {/*selectedPlace && <h3>Selected Marker: {selectedPlace.id}</h3>*/}
       </>
     );
   };

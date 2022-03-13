@@ -4,7 +4,13 @@ const getState = ({ getStore, getActions, setStore }) => {
             message: "Test",
             api: null,
             database : [],
-            mapCenter : {lat: 40.4127355, lng: -3.695428}
+            mapCenter : {lat: 40.4127355, lng: -3.695428},
+            cities: {
+                paris: {lat: 48.8555969, lng: 2.3516682},
+                madrid: {lat: 40.4157829, lng: -3.704523},
+                malaga: {lat: 36.7195475, lng: -4.4210181},
+                berlin: {lat: 52.5153109, lng: 13.4069167}
+            }
 		},
 		
         actions: {
@@ -32,7 +38,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             fetchAux: (str) => {
                 let arrayOfObj = [];
                 for(let i in str) {
-                    //console.log("ID: " + str[i].id);
                     let obj = {
                         id: str[i].address,
                         pos: {lat: parseFloat(str[i].latitude), lng: parseFloat(str[i].longitude)},
