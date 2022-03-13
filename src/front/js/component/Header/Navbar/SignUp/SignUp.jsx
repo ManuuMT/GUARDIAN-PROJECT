@@ -22,7 +22,6 @@ const SignUp = () => {
     const [formErrors, setFormErrors] = useState({}); 
     const [isSubmit, setIsSubmit] = useState(false); 
 
-
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormValues({...formValues, [name]:value});
@@ -39,32 +38,46 @@ const SignUp = () => {
     const validate = (values) =>{
         const errors = {}
         const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
+    
         if(!values.email){
+            actions.setBool(false); 
             errors.email = "Email is required!";
         } else if (!regex.test(values.email)){
+            actions.setBool(false); 
             errors.email = "Invalid email!";
         }
 
         if(!values.password){
+            actions.setBool(false); 
             errors.password = "Password is required!";
         } else if (values.password.length < 4){
+            actions.setBool(false); 
             errors.password = "Password must be more than 4 characters";
         } else if (values.password.length > 10){
+            actions.setBool(false); 
             errors.password = "Password cannot exceed more than 10 characters";
         }
-
         return errors; 
     };
 
 
     //fetch
     const sendData = () => {
-        actions.onboarding({
-            email: formValues.email,
-            password: formValues.password
-        })
+       
         setFormErrors(validate(formValues)); 
-        setIsSubmit(true);      
+        console.log(store.isBool);
+        
+        if(store.isBool){
+            actions.onboarding({
+                email: formValues.email,
+                password: formValues.password
+            })
+            setIsSubmit(true); 
+        }
+        else console.log("La cagaste marico");
+        
+        actions.setBool(true); 
+        console.log(store.isBool); 
     }
 
     return (         
@@ -74,7 +87,7 @@ const SignUp = () => {
                     <Button className="grad-btn no-border" onClick={handleShow}>Registrar</Button>
                 </div>
 
-                {Object.keys(formErrors).length === 0 && isSubmit ? (
+                { isSubmit ? (
                         
                         <Modal show={show} onHide={handleClose} className="text-white">
                             

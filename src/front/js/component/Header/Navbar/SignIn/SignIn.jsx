@@ -14,6 +14,22 @@ const SignIn = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
+    const [formValues, setFormValues] = useState({email:"", password:""}); 
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormValues({...formValues, [name]:value});
+        console.log(formValues);
+    };
+
+    const checkUser = () => {
+        actions.validateUser({
+            email: formValues.email,
+            password: formValues.password
+        })
+        
+    };
+    
     return (         
                 
         <>
@@ -33,10 +49,12 @@ const SignIn = () => {
                                     <div className="container">
                                         <div className="container">
                                             <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Username</label>
+                                            <label data-error="wrong" data-success="right">Email</label>
                                         </div>
                                         <input type="text" className="form-control" placeholder="Introduce tu nombre" 
-                                            name = "username"              
+                                            name = "username"  
+                                            value={formValues.email}  
+                                            onChange={handleChange}              
                                             />
                                     </div>
                             </div>
@@ -48,16 +66,16 @@ const SignIn = () => {
                                             <label data-error="wrong" data-success="right">Password</label>
                                         </div>
                                         <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
-                                            name="password"                       
+                                            name="password"   
+                                            value={formValues.password}   
+                                            onChange={handleChange}                     
                                             />
                                     </div>
                             </div>
                     </Modal.Body>
                     
                     <Modal.Footer>
-                        <Link to="Dashboard">
-                            <Button type="submit">Entrar</Button>
-                        </Link>
+                        <Button type="submit" onClick={checkUser}>Entrar</Button>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
                     </Modal.Footer>
             </Modal>

@@ -1,6 +1,9 @@
+import { bool } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+            isBool: true, 
             database: null,
             message: null,
             finalArray : [],
@@ -12,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 lat: 40.4127355,
                 lng: -3.695428
                 }
+            
 		},
 		
         actions: {
@@ -31,6 +35,32 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(data => localStorage.setItem('token', data.token))
                     .catch(error => console.error("Error en fn getfetch: " + error));   
             },
+
+            
+            
+           
+            validateUser: (body) => {
+
+                const url = 'https://3001-manuumt-guardian-3o3qj3chgtg.ws-eu34.gitpod.io/api/'.concat('login');
+                const header = {
+                    method: "POST",
+                    body: JSON.stringify(body),
+                    headers: {
+                        "Content-type": "application/json",
+                        Accept: "application/json"
+                    }
+                };
+            
+                fetch(url, header)
+                    .then(res => res.json())
+                    //.then(data => localStorage.setItem('token', data.token))
+                   //.catch(error => console.error("Error en fn getfetch: " + error));   
+
+            },
+
+
+
+
             getFetch : () => {
                 const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
@@ -59,6 +89,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                 console.log("3: " + arrayMarkers);
                 setStore({finalArray: arrayMarkers});
 
+            },
+
+            setBool: (boolean) => {
+                setStore({isBool: boolean}); 
             }
         }
 	};

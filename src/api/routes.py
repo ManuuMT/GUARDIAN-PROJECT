@@ -89,7 +89,6 @@ def login():
     if not check_password_hash(user.password, password):
         return jsonify({"Message": "Password doesn't match"}), 500
 
-
     # get JWT TOKEN
     token = create_access_token(identity=user.id)
     return jsonify({'token': token}), 200
