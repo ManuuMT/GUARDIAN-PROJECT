@@ -41,12 +41,9 @@ const Navbar = () => {
           {/* <Link to="Contact"> */}
                 <div className="nav-right">
                     <div className="container d-flex">
-                            {/* <SignIn/> */}
+                            <SignIn/>
                             <SignUp/>
                     </div>
-                   
-                    {/* <button className="btn grad-btn" type="">Sign Up</button>
-                    <button className="btn grad-btn-outline mx-4" type="">Sign In</button> */}
                 </div>
           {/* </Link> */}
       </nav>

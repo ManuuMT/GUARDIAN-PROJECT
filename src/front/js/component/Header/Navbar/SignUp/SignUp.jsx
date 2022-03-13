@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './SignUp.scss';
+import SignIn from '/workspace/Guardian/src/front/js/component/Header/Navbar/SignIn/SignIn.jsx';
 
 const SignUp = () => {
 
@@ -15,7 +16,7 @@ const SignUp = () => {
 
     const handleShow = () => setShow(true);
 
-    const [formValues, setFormValues] = useState({username: "", email:"", password:""}); 
+    const [formValues, setFormValues] = useState({email:"", password:""}); 
     const [formErrors, setFormErrors] = useState({}); 
     const [isSubmit, setIsSubmit] = useState(false); 
 
@@ -36,11 +37,6 @@ const SignUp = () => {
     const validate = (values) =>{
         const errors = {}
         const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
-
-        if(!values.username){
-            errors.username = "Username is required!";
-        }
-
         if(!values.email){
             errors.email = "Email is required!";
         } else if (!regex.test(values.email)){
@@ -62,7 +58,6 @@ const SignUp = () => {
     //fetch
     const sendData = () => {
         let body = {
-            username: formValues.username,
             email: formValues.email,
             password: formValues.password
         }
@@ -73,7 +68,7 @@ const SignUp = () => {
     }
 
     const optimizedFetch = (fetchMethod, fetchBody) => {
-		const url = "https://3001-manuumt-guardian-8uiqrwz3hsc.ws-eu34.gitpod.io/api/user";
+		const url = "https://3001-manuumt-guardian-8uiqrwz3hsc.ws-eu34.gitpod.io/api/onboarding";
         const header = {
 			method: fetchMethod,
 			body: fetchBody,
@@ -96,10 +91,13 @@ const SignUp = () => {
                     <Button className="grad-btn no-border" onClick={handleShow}>Registrar</Button>
                 </div>
 
-
-                    {Object.keys(formErrors).length === 0 && isSubmit ? (
+                {Object.keys(formErrors).length === 0 && isSubmit ? (
                         
-                        <Modal show={show} onHide={handleClose} className="text-white">Success!</Modal>
+                        <Modal show={show} onHide={handleClose} className="text-white">
+                            
+                            <SignIn />
+                            
+                        </Modal>
                         
                         
                         ) : (
@@ -113,21 +111,6 @@ const SignUp = () => {
                                 </Modal.Header>
                             
                                 <Modal.Body>
-                                    
-                                        <div className="container modal-body">      
-                                                <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
-                                                        <label data-error="wrong" data-success="right">Username</label>
-                                                    </div>
-                                                    <input type="text" className="form-control" placeholder="Introduce tu nombre" 
-                                                        name = "username"
-                                                        value={formValues.username}   
-                                                        onChange={handleChange}                        
-                                                        />
-                                                </div>
-                                                <p className="text-warning">{formErrors.username}</p>
-                                        </div>
 
                                         <div className="container modal-body">      
                                                 <div className="container">
@@ -180,7 +163,7 @@ const SignUp = () => {
                             </Modal>
 
                             </>
-                        )}
+                )}
         </>
     );
 };
