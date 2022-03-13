@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../../../../store/appContext";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './SignUp.scss';
@@ -6,6 +7,7 @@ import SignIn from '/workspace/Guardian/src/front/js/component/Header/Navbar/Sig
 
 const SignUp = () => {
 
+    const { store, actions } = useContext(Context);
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
@@ -57,32 +59,13 @@ const SignUp = () => {
 
     //fetch
     const sendData = () => {
-        let body = {
+        actions.onboarding({
             email: formValues.email,
             password: formValues.password
-        }
-        console.log(body);
-        optimizedFetch("POST",JSON.stringify(body));
+        })
         setFormErrors(validate(formValues)); 
         setIsSubmit(true);      
     }
-
-    const optimizedFetch = (fetchMethod, fetchBody) => {
-		const url = "https://3001-manuumt-guardian-8uiqrwz3hsc.ws-eu34.gitpod.io/api/onboarding";
-        const header = {
-			method: fetchMethod,
-			body: fetchBody,
-			headers: {
-				"Content-Type": "application/json"
-			}
-		};
-        console.log(url); /*prueba*/
-		fetch(url, header)
-			.then(res => res.json()) /*obtendra respuesta servidor*/
-			.then(data => console.log(data))
-			.catch(error => console.error("Ocurrió el siguiente error:"+error));
-	};
-
 
     return (         
                 

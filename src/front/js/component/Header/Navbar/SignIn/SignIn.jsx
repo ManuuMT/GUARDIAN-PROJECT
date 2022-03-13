@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Context } from "../../../../store/appContext";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './SignIn.scss';
@@ -6,6 +7,8 @@ import './SignIn.scss';
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
+
+    //const { store, actions } = useContext(Context);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -48,9 +51,7 @@ const SignIn = () => {
                                             name="password"                       
                                             />
                                     </div>
-
                             </div>
-
                     </Modal.Body>
                     
                     <Modal.Footer>
@@ -59,11 +60,7 @@ const SignIn = () => {
                         </Link>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
                     </Modal.Footer>
-
             </Modal>
-
-
-
         </>
     );
 };

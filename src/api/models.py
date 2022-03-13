@@ -36,3 +36,8 @@ class User(db.Model):
             "id": self.id,
             "email": self.email
         }
+
+    def create(self):
+        db.session.add(self)
+        db.session.commit()
+        return self

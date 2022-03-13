@@ -52,10 +52,6 @@ def delete_incident(incident_id):
     db.session.commit()
     return "Incident deleted from database", 200
 
-
-
-
-
 # sign up
 @api.route('/onboarding', methods=["POST"])
 def onboarding():
@@ -67,12 +63,12 @@ def onboarding():
 
     user = User(email=email, password=generate_password_hash(password))
     try:
-        db.session.add(user)
-        userCreated = db.session.commit() 
+        userCreated = user.create()
         token = create_access_token(identity=userCreated.id)
         return jsonify({'token': token}), 201
 
     except Exception as err:
+        print(str(err))
         return jsonify({"Message": "Impossible to create user"}), 500
 
 #login

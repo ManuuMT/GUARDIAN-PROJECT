@@ -15,12 +15,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		
         actions: {
-			getMessage: () => {
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
+			onboarding: (body) => {
+                const url = 'https://3001-manuumt-guardian-3o3qj3chgtg.ws-eu34.gitpod.io/api/'.concat('onboarding');
+                const header = {
+                    method: "POST",
+                    body: JSON.stringify(body),
+                    headers: {
+                        "Content-type": "application/json",
+                        Accept: "application/json"
+                    }
+                };
+            
+                fetch(url, header)
+                    .then(res => res.json())
+                    .then(data => localStorage.setItem('token', data.token))
+                    .catch(error => console.error("Error en fn getfetch: " + error));   
+            },
             getFetch : () => {
                 const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
@@ -34,24 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(res => res.json())
                     .then(data => getActions().fetchAux(data))
                     .catch(error => console.error("Error en fn getfetch: " + error));   
-                
-                /*
-                const arrayMarkers = [];
-                const store = getStore().database;
-        
-                for(let i in store) {
-                    let obj = {lat: store[i].latitude, lng: store[i].longitude};
-                    arrayMarkers.push(obj);
-                }
-                setStore({finalArray: arrayMarkers});
-
-                .then(data => setStore({database: data}))
-
-                store=data;
-                        console.log("1: " + store);
-                        return store;
-                */
-
             },
             testData: () => {
                 let verArray = getStore().finalArray;
