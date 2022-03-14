@@ -2,8 +2,10 @@ import React from "react";
 import './HeaderProfile.scss';
 import { ProgressBar , Row, Col } from 'react-bootstrap';
 import { BiMessageRoundedError } from 'react-icons/bi';
-import { BsHandThumbsUpFill} from 'react-icons/bs';
+import { BsHandThumbsUpFill , BsFacebook} from 'react-icons/bs';
 import { GiOldMicrophone , GiChainedHeart } from 'react-icons/gi';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { SiTwitter } from 'react-icons/si';
 
 const HeaderProfile = () => {
     return (
@@ -11,18 +13,23 @@ const HeaderProfile = () => {
             <div className="container-fluid">
                 <div>
                     <div className="cardProfile"> <img className="card-img-top" src="https://us.123rf.com/450wm/elenarolau/elenarolau1802/elenarolau180200012/95204888-fondo-acuarela-ultra-violeta-ne%C3%B3n-retro-80s-colores-forma-alargada-alargada-alargada-rect%C3%A1ngulo-pint.jpg" alt="Card image cap"/>
-                        <div className="card-body little-profile text-center">
+                        <div className="card-body little-profile">
                             <div className="pro-img">
                                 <img src="https://i.imgur.com/8RKXAIV.jpg" alt="user"/>
                             </div>
                                 <h3 className="text-light">Brad Macullam</h3>
+                                <small> 
+                                    <AiOutlineInstagram className="m-auto me-3 mt-2 grad-btn insta"></AiOutlineInstagram>
+                                    <BsFacebook className="m-auto me-3 mt-2 grad-btn insta"></BsFacebook>
+                                    <SiTwitter className="m-auto me-3 mt-2 grad-btn insta"></SiTwitter>
+                                </small> <br/>
                                 <small className="text-light">PUNTOS</small> <br/>
                                 <GiChainedHeart size={30} className="m-auto me-3 mt-2 grad-btn p-1 rounded-circle" icon={"spinner"}></GiChainedHeart>
                                 <small className="text-light">29507</small><br/>
                                 <small className="text-light"> Nombre de usuario: BradMac</small><br/>
                                 <small className="text-light"> Se unió hace 3 meses</small><br/>
-                                <button className="btn grad-btn mt-2">Seguír</button>
-                            <div className="row text-center m-t-20">
+                                <button className="btn grad-btn mt-2 w-25">Seguír</button>
+                            <div className="row text-center mt-5">
                                 <div className="col-lg-4 col-md-4 m-t-20">
                                     <h3 className="text-light font-light">
                                         <BiMessageRoundedError className="m-auto firstIcons btn grad-btn mt-2" icon={"spinner"}></BiMessageRoundedError><br/>
