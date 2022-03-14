@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../../../../store/appContext";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const SignIn = () => {
 
-    //const { store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -27,7 +27,8 @@ const SignIn = () => {
             email: formValues.email,
             password: formValues.password
         })
-        
+
+
     };
     
     return (         
@@ -52,7 +53,7 @@ const SignIn = () => {
                                             <label data-error="wrong" data-success="right">Email</label>
                                         </div>
                                         <input type="text" className="form-control" placeholder="Introduce tu nombre" 
-                                            name = "username"  
+                                            name = "email"  
                                             value={formValues.email}  
                                             onChange={handleChange}              
                                             />
