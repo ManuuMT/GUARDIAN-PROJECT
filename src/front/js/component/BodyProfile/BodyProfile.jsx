@@ -1,5 +1,7 @@
 import React from "react";
 import './BodyProfile.scss';
+import Maps from "../Header/Intro/Maps/Maps.jsx";
+
 import { Row , Col , Card , Button} from 'react-bootstrap';
 import { AiFillStar , AiOutlineStar } from 'react-icons/ai';
 import { BsCheckCircle , BsCheckCircleFill , BsFacebook } from 'react-icons/bs';
@@ -182,27 +184,13 @@ const BodyProfile = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Row xs={1} md={2}>
-                                <Col className="">
-                                    <div className="container-fluid cardFaceb column">
-                                        <Card className="cardFaceb">
-                                            <Card.Body className="cardFaceBody">
-                                                <Card.Text className="mt-2">
-                                                Some quick example text to build on the card title and make up the bulk of
-                                                the card's content.
-                                                </Card.Text>
-                                                <Button variant="primary">Go somewhere</Button>
-                                            </Card.Body>
-                                        </Card>
-                                        
-                                    </div>
-                                    <div className="container-fluir contaFace">
-                                        
-                                    </div>
-                                </Col> 
+                            <Row> 
                                 <Col>
-                                    
+                                    <div className="container-fluid mapsProfile">
+                                        <Maps class=""></Maps>
+                                    </div>
                                 </Col>
+                                <Col></Col>
                             </Row>
                     </Col>
                 </Row>

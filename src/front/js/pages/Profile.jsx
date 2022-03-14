@@ -14,6 +14,7 @@ export const Profile = () => {
 			<NavBar/>
             <HeaderProfile/>
 			<BodyProfile/>
+			
 	    </>
 	);
 };

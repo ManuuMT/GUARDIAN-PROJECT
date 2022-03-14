@@ -131,8 +131,8 @@ body {
 }
 
 .aboutForm {
-    width: 1000px;
-    height: 200px;
+    width: auto;
+    height: auto;
     margin-top: 25px;
     margin-left: 10px;
 }
@@ -272,4 +272,21 @@ h6 {
     margin: 0 10px 0 0;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out
+}
+
+
+
+
+
+
+
+
+
+.mapsProfile {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin-top: 100px;
 }
