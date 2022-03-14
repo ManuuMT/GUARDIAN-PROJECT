@@ -18,7 +18,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<Switch>
 					<Route exact path="/">
-						{store.isLoggedIn ? <Redirect to="/Dashbord" /> : <Home />}
+						{store.isLoggedIn ? <Redirect to="/Dashboard" /> : <Home />}
 					</Route>
 					
 					<Route exact path="/Map">
@@ -34,7 +34,7 @@ const Layout = () => {
 					</Route>
 
 					<Route exact path="/Dashboard">
-            			<Dashboard />
+            			{store.isLoggedIn ? <Dashboard /> : <Redirect to="/" />}
           			</Route>
 				</Switch>
 			</BrowserRouter>

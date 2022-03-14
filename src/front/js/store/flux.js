@@ -62,8 +62,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             },
 
-
-
+            logout: () => {
+                localStorage.removeItem("token");
+                setStore({isLoggedIn: false});
+            },
 
             getFetch : () => {
                 const url = process.env.BACKEND_URL + "/api/incidents";
