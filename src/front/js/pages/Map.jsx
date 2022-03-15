@@ -1,17 +1,13 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 
 import Navbar from "../component/Header/Navbar/Navbar.jsx"
-import Footer from "../component/Footer/Footer.jsx";
+import TestMap from "../component/Header/Intro/Maps/TestMap.jsx";
 
 export const Map = () => {
-	const { store, actions } = useContext(Context);
-
 	return (
 		<>
 			<Navbar/>
-			{/* Colocar aquí Map component */}
-			<Footer/>
-	   </>
+			<TestMap/>
+        </>
 	);
 };
