@@ -23,22 +23,13 @@ def get_all():
 
 @api.route('/incidents', methods=['POST'])
 def post_incident():
-    body = request.get_json()
 
-    #comprobar que esta todo lo que necesito
-    if body is None:
-        raise APIException("You need to specify the request body as a json object", status_code=400)
-    if 'reported_by' not in body:
-        raise APIException('You need to write some name', status_code=400)
-    if 'category' not in body:
-        raise APIException('You need to specify some category', status_code=400)     
-    if 'longitude' not in body:
-        raise APIException('You need to specify the longitude of the incident', status_code=400)
-    if 'latitude' not in body:
-        raise APIException('You need to specify the longitude of the incident', status_code=400)
+    reported_by, category, latitude, longitude, description, address = request.json.get('reported_by', None), request.json.get('category', None), request.json.get('latitude', None), request.json.get('longitude', None), request.json.get('description', None), request.json.get('address', None)
+
+    if not (reported_by and category and latitude and longitude and address):
+        return jsonify({'message': 'Data nor provided'}), 400
         
-    #en mi caso sera User(datos de la tabla modelo)
-    new_incident = Incident(reported_by=body['reported_by'],category=body['category'],description=body['description'],longitude=body['longitude'],latitude=body['latitude'],)
+    new_incident = Incident(reported_by=reported_by,category=category,description=description,longitude=longitude,latitude=latitude,address=address)
     db.session.add(new_incident)
     db.session.commit()
     return "New incident recorded in the database.", 200 #respuesta de la API

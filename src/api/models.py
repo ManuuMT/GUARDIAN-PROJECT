@@ -9,6 +9,7 @@ class Incident(db.Model):
     description = db.Column(db.String(120), unique=False, nullable=True)
     longitude = db.Column(db.String(120), unique=False, nullable=False)
     latitude = db.Column(db.String(120), unique=False, nullable=False)
+    address = db.Column(db.String(120), unique=False, nullable=False)
 
     def __repr__(self):
          return f"{self.category}"
@@ -20,10 +21,11 @@ class Incident(db.Model):
             "category": self.category,
             "description": self.description,
             "longitude": self.longitude,
-            "latitude": self.latitude
+            "latitude": self.latitude,
+            "address": self.address
         }
 
-class User(db.Model):
+  class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String, unique=False, nullable=False)
@@ -41,3 +43,4 @@ class User(db.Model):
         db.session.add(self)
         db.session.commit()
         return self
+     }
