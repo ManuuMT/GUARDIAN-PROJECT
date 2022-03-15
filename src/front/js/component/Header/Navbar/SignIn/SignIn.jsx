@@ -27,8 +27,6 @@ const SignIn = () => {
             email: formValues.email,
             password: formValues.password
         })
-
-
     };
     
     return (         

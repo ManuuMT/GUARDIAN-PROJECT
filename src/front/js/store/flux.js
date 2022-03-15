@@ -53,13 +53,18 @@ const getState = ({ getStore, getActions, setStore }) => {
                 };
             
                 fetch(url, header)
-                    .then(res => res.json())
-                    .then(data => {
-                        setStore({isLoggedIn: true})
-                        localStorage.setItem('token', data.token)
+                    .then(res => {
+                        return res.json()
                     })
-                    .catch(error => console.error("Error en fn getfetch: " + error));   
-
+                    .then(data => {
+                        if (typeof data.token !== 'undefined') {
+                            setStore({isLoggedIn: true})
+                            localStorage.setItem('token', data.token)
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
             },
 
             logout: () => {
