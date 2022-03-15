@@ -140,9 +140,6 @@ body {
 
 
 
-
-
-
 .padding {
     padding: 3rem !important
 }
@@ -157,7 +154,7 @@ body {
     box-shadow: 0 0 30px rgb(7, 1, 4);
     background-color: rgba(61, 24, 51, 0.938);;
     border: none;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .m-r-0 {
@@ -294,10 +291,25 @@ h6 {
 }
 
 .cardFriends {
-    background-color: #441830;;
+    background-color: rgba(61, 24, 51, 0.938);;
     box-shadow: 0 0 30px rgb(22, 3, 14);
     border-radius: 20px;
     justify-content: center;
     text-align: center;
 }
 
+
+
+.message {
+    box-shadow: 0 0 30px rgb(22, 3, 14);
+}
+
+.messageCard {
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    background-color: rgba(61, 24, 51, 0.938);
+    border-radius: 20px;
+    margin-top: 30px;
+}

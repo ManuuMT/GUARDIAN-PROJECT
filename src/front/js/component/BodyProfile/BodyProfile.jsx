@@ -70,11 +70,10 @@ const BodyProfile = () => {
                     </Col>
                 </Row>
                 <Row>
-                <Col sm={6}>   
-                        <div className="mb-5">
-                                <div className="row d-flex justify-content-center">
-                                    <div className="col-md-8">
-                                        <div className="headings d-flex justify-content-between align-items-center mb-3">
+                <Col xs={6} className="mb-5 mt-4">   
+                                <div className="row d-flex justify-content-center message messageCard">
+                                    <div>
+                                        <div className="headings d-flex justify-content-between align-items-center">
                                             <h5>Mensajes sin leer(6)</h5>
                                                 <div className="padding">
                                                     <div className="switch demo3">
@@ -89,11 +88,11 @@ const BodyProfile = () => {
                                                 <div className="user d-flex flex-row align-items-center"> 
                                                     <img src="https://i.imgur.com/hczKIze.jpg" width="30" className="user-img rounded-circle mr-2"/> 
                                                         <span>
-                                                            <small className="font-weight-bold text-primary ms-2">james_olesenn</small> 
-                                                            <small className="font-weight-bold">Hmm, This poster looks cool</small>
+                                                            <small className="font-weight-bold text-primary ms-2 me-2">samuel_fernandez</small> 
+                                                            <small className="font-weight-bold">A mí también me ha pasado</small>
                                                         </span> 
                                                 </div> 
-                                                <small>2 days ago</small>
+                                                <small>Hace dos días</small>
                                             </div>
                                             <div className="action d-flex justify-content-between mt-2 align-items-center">
                                                 <div className="reply px-4"> 
@@ -113,11 +112,11 @@ const BodyProfile = () => {
                                                 <div className="user d-flex flex-row align-items-center"> 
                                                     <img src="https://i.imgur.com/C4egmYM.jpg" width="30" className="user-img rounded-circle mr-2"/> 
                                                     <span>
-                                                        <small className="font-weight-bold text-primary ms-2">olan_sams</small> 
-                                                        <small className="font-weight-bold">Loving your work and profile! </small>
+                                                        <small className="font-weight-bold text-primary ms-2 me-2">olan_sams</small> 
+                                                        <small className="font-weight-bold">Adoro Madrid</small>
                                                     </span> 
                                                 </div> 
-                                                <small>3 days ago</small>
+                                                <small>Hace 3 días</small>
                                             </div>
                                             <div className="action d-flex justify-content-between mt-2 align-items-center">
                                                 <div className="reply px-4"> 
@@ -137,10 +136,10 @@ const BodyProfile = () => {
                                                     <img src="https://i.imgur.com/0LKZQYM.jpg" width="30" className="user-img rounded-circle mr-2"/> 
                                                     <span>
                                                         <small className="font-weight-bold text-primary ms-2">rashida_jones</small> 
-                                                        <small className="font-weight-bold">Really cool Which filter are you using? </small>
+                                                        <small className="font-weight-bold">Esta aplicación está genial</small>
                                                     </span> 
                                                 </div> 
-                                                <small>3 days ago</small>
+                                                <small>Hace 3 días</small>
                                             </div>
                                             <div className="action d-flex justify-content-between mt-2 align-items-center">
                                                 <div className="reply px-4"> 
@@ -156,36 +155,11 @@ const BodyProfile = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="card p-3 mt-2">
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="user d-flex flex-row align-items-center"> 
-                                                    <img src="https://i.imgur.com/ZSkeqnd.jpg" width="30" className="user-img rounded-circle mr-2"/> 
-                                                    <span>
-                                                        <small className="font-weight-bold text-primary ms-2">simona_rnasi</small> 
-                                                        <small className="font-weight-bold text-primary">@macky_lones</small> 
-                                                        <small className="font-weight-bold text-primary">@rashida_jones</small> 
-                                                        <small className="font-weight-bold">Thanks </small>
-                                                    </span> 
-                                                </div> 
-                                                <small>3 days ago</small>
-                                            </div>
-                                            <div className="action d-flex justify-content-between mt-2 align-items-center">
-                                                <div className="reply px-4"> 
-                                                    <small>Eliminar</small> 
-                                                    <span className="dots ms-1 me-1"></span> 
-                                                    <small>Responder</small> 
-                                                    <span className="dots ms-1 me-1"></span>
-                                                </div>
-                                                <div className="icons align-items-center"> 
-                                                    <BsCheckCircleFill></BsCheckCircleFill> 
-                                            </div>
-                                        </div>
-                                    </div>
+                                        
                                 </div>
                             </div>
-                        </div>
                     </Col>
-                    <Col>
+                    <Col xs={6}>
                         <div className="container-fluid w-75 mt-5">
                                 <Card className="cardFriends">
                                     <Card.Body className="cardFriends">
