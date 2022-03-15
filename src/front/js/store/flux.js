@@ -1,12 +1,9 @@
-import { bool } from "prop-types";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
             fetchErrors: null,
             isLoggedIn: false,
             isBool: true,             
-      
             message: "Test",
             api: null,
             checkRobbery: true,
@@ -49,12 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         
                     });   
             },
-
-            
-            
-           
             validateUser: (body) => {
-
                 const url = process.env.BACKEND_URL.concat('/api/login');
                 const header = {
                     method: "POST",
@@ -89,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             getFetch : () => {
                 setStore({ api: process.env.API_KEY });
-                const url = process.env.BACKEND_URL + "/api/incidents";
+                const url = process.env.BACKEND_URL + "api/incidents";
                 const header = {
                     method: "GET",
                     headers: {
@@ -109,8 +101,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     if(str[i].category == "Robo-Asalto") bool = getStore().checkRobbery;
                     if(str[i].category == "Accidente-de-Transito") bool = getStore().checkCrash;
                     if(str[i].category == "Pelea-Callejera") bool = getStore().checkFight;
-
-            },
 
                     let obj = {
                         id: str[i].address,
