@@ -11,6 +11,7 @@ const SignIn = () => {
     const { store, actions } = useContext(Context);
 
     const [show, setShow] = useState(false);
+    const [formErrors, setFormErrors] = useState({}); 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
@@ -22,7 +23,34 @@ const SignIn = () => {
         console.log(formValues);
     };
 
+    const validate = (values) =>{
+        const errors = {}
+        const regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
+    
+        if(!values.email){
+            actions.setBool(false); 
+            errors.email = "Email is required!";
+        } else if (!regex.test(values.email)){
+            actions.setBool(false); 
+            errors.email = "Invalid email!";
+        }
+
+        if(!values.password){
+            actions.setBool(false); 
+            errors.password = "Password is required!";
+        } else if (values.password.length < 4){
+            actions.setBool(false); 
+            errors.password = "Password must be more than 4 characters";
+        } else if (values.password.length > 10){
+            actions.setBool(false); 
+            errors.password = "Password cannot exceed more than 10 characters";
+        }
+        return errors; 
+    };
+
     const checkUser = () => {
+
+        setFormErrors(validate(formValues)); 
         actions.validateUser({
             email: formValues.email,
             password: formValues.password
@@ -56,6 +84,7 @@ const SignIn = () => {
                                             onChange={handleChange}              
                                             />
                                     </div>
+                                    <p className="text-warning">{formErrors.email}</p>
                             </div>
 
                             <div className="container modal-body">      
@@ -70,6 +99,7 @@ const SignIn = () => {
                                             onChange={handleChange}                     
                                             />
                                     </div>
+                                    <p className="text-warning">{formErrors.password}</p>
                             </div>
                     </Modal.Body>
                     

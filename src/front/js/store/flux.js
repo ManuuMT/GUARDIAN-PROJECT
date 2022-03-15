@@ -34,7 +34,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                 fetch(url, header)
                     .then(res => res.json())
                     .then(data => localStorage.setItem('token', data.token))
-                    .catch(error => console.error("Error en fn getfetch: " + error));   
+                    .catch(error => {
+                        console.error("Error en fn getfetch: " + error)
+                    
+                    });   
             },
 
             
