@@ -70,8 +70,8 @@ const BodyProfile = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>   
-                        <div className="mt-5">
+                <Col sm={6}>   
+                        <div className="mb-5">
                                 <div className="row d-flex justify-content-center">
                                     <div className="col-md-8">
                                         <div className="headings d-flex justify-content-between align-items-center mb-3">
@@ -82,7 +82,7 @@ const BodyProfile = () => {
                                                         <input type="checkbox"/> 
                                                         <label><i></i></label> 
                                                     </div>
-                                                    </div>
+                                                </div>
                                         </div>
                                         <div className="card p-3">
                                             <div className="d-flex justify-content-between align-items-center">
@@ -177,21 +177,35 @@ const BodyProfile = () => {
                                                     <span className="dots ms-1 me-1"></span>
                                                 </div>
                                                 <div className="icons align-items-center"> 
-                                                <BsCheckCircleFill></BsCheckCircleFill> 
-                                                </div>
+                                                    <BsCheckCircleFill></BsCheckCircleFill> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <Row> 
-                                <Col>
-                                    <div className="container-fluid mapsProfile">
-                                        <Maps class=""></Maps>
-                                    </div>
-                                </Col>
-                                <Col></Col>
-                            </Row>
+                        </div>
+                    </Col>
+                    <Col>
+                        <div className="container-fluid w-75 mt-5">
+                                <Card className="cardFriends">
+                                    <Card.Body className="cardFriends">
+                                        <Card.Title className="text-light">Amigos</Card.Title>
+                                        <Card.Text className="text-light">
+                                        <a href="">20 amigos</a>
+                                        </Card.Text>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U02ALE95BQS-250b13585f69-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U024H7ZN5L7-8cef6ec9d8d7-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U02C96SV8MC-d99dcfc474a8-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U02DKNHAU9M-883749a8bd6b-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U02FSDU32AE-651870a1ef8a-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-UV6FY8599-850bf5c835ab-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U01EAS5V1S8-ce8dad094424-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U029T8LMJH4-33fe701401bc-512" className="imgFriends" alt="..."/></a>
+                                        <a href=""><img src="https://ca.slack-edge.com/T0BFXMWMV-U02CDAR1X7G-96485fed4291-512" className="imgFriends" alt="..."/></a>
+                                        
+                                    </Card.Body>
+                                </Card>
+                        </div>
                     </Col>
                 </Row>
             </div>
