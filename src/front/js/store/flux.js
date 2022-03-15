@@ -3,6 +3,7 @@ import { bool } from "prop-types";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+            fetchErrors: null,
             isLoggedIn: false,
             isBool: true, 
             database: null,
@@ -33,10 +34,17 @@ const getState = ({ getStore, getActions, setStore }) => {
             
                 fetch(url, header)
                     .then(res => res.json())
-                    .then(data => localStorage.setItem('token', data.token))
+                    .then(data => {
+                        if (typeof data.token !== 'undefined') {
+                            setStore({isLoggedIn: true, fetchErrors: null})
+                            localStorage.setItem('token', data.token)
+                        }else{
+                            setStore({isLoggedIn: false, fetchErrors: data.Message})
+                        }
+                    })
                     .catch(error => {
                         console.error("Error en fn getfetch: " + error)
-                    
+                        
                     });   
             },
 
@@ -61,8 +69,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .then(data => {
                         if (typeof data.token !== 'undefined') {
-                            setStore({isLoggedIn: true})
+                            setStore({isLoggedIn: true, fetchErrors: null})
                             localStorage.setItem('token', data.token)
+                        }else{
+                            setStore({isLoggedIn: false, fetchErrors: data.Message})
                         }
                     })
                     .catch(error => {

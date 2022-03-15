@@ -101,6 +101,7 @@ const SignIn = () => {
                                     </div>
                                     <p className="text-warning">{formErrors.password}</p>
                             </div>
+                            {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
                     </Modal.Body>
                     
                     <Modal.Footer>

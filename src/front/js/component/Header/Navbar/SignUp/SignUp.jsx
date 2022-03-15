@@ -72,7 +72,9 @@ const SignUp = () => {
                 email: formValues.email,
                 password: formValues.password
             })
-            setIsSubmit(true); 
+            
+            store.fetchErrors ? setIsSubmit(true) : null;
+            //setIsSubmit(true);
         }
         else console.log("La cagaste marico");
         
@@ -121,7 +123,6 @@ const SignUp = () => {
                                                         />
                                                 </div>
                                                 <p className="text-warning">{formErrors.email}</p>
-
                                         </div>
 
                                         <div className="container modal-body">      
@@ -148,6 +149,7 @@ const SignUp = () => {
                                                     </div>
                                                     <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
                                                 </div>
+                                                {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
                                         </div>
                                 </Modal.Body>
                                 
