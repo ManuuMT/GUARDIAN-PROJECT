@@ -18,7 +18,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-            state.actions.getFetch();
+       state.actions.getFetch();
 		}, []);
 
 		return (

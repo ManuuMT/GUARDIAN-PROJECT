@@ -1,6 +1,12 @@
+import { bool } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+            fetchErrors: null,
+            isLoggedIn: false,
+            isBool: true,             
+      
             message: "Test",
             api: null,
             checkRobbery: true,
@@ -17,12 +23,70 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		
         actions: {
-			getMessage: () => {
-				fetch(process.env.BACKEND_URL + "/api/hello")
-					.then(resp => resp.json())
-					.then(data => setStore({ message: data.message }))
-					.catch(error => console.log("Error loading message from backend", error));
-			},
+			onboarding: (body) => {
+                const url = process.env.BACKEND_URL.concat('/api/onboarding');
+                const header = {
+                    method: "POST",
+                    body: JSON.stringify(body),
+                    headers: {
+                        "Content-type": "application/json",
+                        Accept: "application/json"
+                    }
+                };
+            
+                fetch(url, header)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (typeof data.token !== 'undefined') {
+                            setStore({isLoggedIn: true, fetchErrors: null})
+                            localStorage.setItem('token', data.token)
+                        }else{
+                            setStore({isLoggedIn: false, fetchErrors: data.Message})
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error en fn getfetch: " + error)
+                        
+                    });   
+            },
+
+            
+            
+           
+            validateUser: (body) => {
+
+                const url = process.env.BACKEND_URL.concat('/api/login');
+                const header = {
+                    method: "POST",
+                    body: JSON.stringify(body),
+                    headers: {
+                        "Content-type": "application/json",
+                        Accept: "application/json"
+                    }
+                };
+            
+                fetch(url, header)
+                    .then(res => {
+                        return res.json()
+                    })
+                    .then(data => {
+                        if (typeof data.token !== 'undefined') {
+                            setStore({isLoggedIn: true, fetchErrors: null})
+                            localStorage.setItem('token', data.token)
+                        }else{
+                            setStore({isLoggedIn: false, fetchErrors: data.Message})
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+
+            logout: () => {
+                localStorage.removeItem("token");
+                setStore({isLoggedIn: false});
+            },
+
             getFetch : () => {
                 setStore({ api: process.env.API_KEY });
                 const url = process.env.BACKEND_URL + "/api/incidents";
@@ -46,6 +110,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                     if(str[i].category == "Accidente-de-Transito") bool = getStore().checkCrash;
                     if(str[i].category == "Pelea-Callejera") bool = getStore().checkFight;
 
+            },
+
                     let obj = {
                         id: str[i].address,
                         pos: {lat: parseFloat(str[i].latitude), lng: parseFloat(str[i].longitude)},
@@ -64,6 +130,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({checkRobbery: b1}); 
                 setStore({checkCrash: b2}); 
                 setStore({checkFight: b3}); 
+
+            },
+              
+             setBool: (boolean) => {
+                setStore({isBool: boolean}); 
             }
         }
 	};
