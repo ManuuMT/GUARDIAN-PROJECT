@@ -1,8 +1,8 @@
 import React from "react";
 import "./Intro.scss"
-import Maps from "./Maps/Maps.jsx";
+//import Maps from "./Maps/Maps.jsx";
 import HeroTitle from "./HeroTitle/HeroTitle.jsx"
-import MapForm from "./MapForm/MapForm.jsx"
+//import MapForm from "./MapForm/MapForm.jsx"
 
 const Intro = () => {
   return (
@@ -10,11 +10,11 @@ const Intro = () => {
     <div className="row intro-row">
         <div className="col-md-6 col-sm-12 left-col">
             <HeroTitle/>
-            <MapForm/>
+                {/*<MapForm/>*/}
         </div>
         
         <div className="quickmap col-md-6 col-sm-12 right-col">              
-            <Maps/>  
+            {/*<Maps/>*/}  
         </div>
     </div>
 </div>
