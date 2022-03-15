@@ -81,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             getFetch : () => {
                 setStore({ api: process.env.API_KEY });
-                const url = process.env.BACKEND_URL + "api/incidents";
+                const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
                     method: "GET",
                     headers: {
