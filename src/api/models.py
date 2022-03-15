@@ -25,7 +25,7 @@ class Incident(db.Model):
             "address": self.address
         }
 
-  class User(db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String, unique=False, nullable=False)
@@ -43,4 +43,3 @@ class Incident(db.Model):
         db.session.add(self)
         db.session.commit()
         return self
-     }
