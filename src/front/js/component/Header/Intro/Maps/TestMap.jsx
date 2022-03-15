@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../../../store/appContext.js";
+import MapForm from "../MapForm/MapForm.jsx";
 
 // We will use these things from the lib
 // https://react-google-maps-api-docs.netlify.com/
@@ -20,19 +21,22 @@ const TestMap = () => {
   // The things we need to track in state
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [markerMap, setMarkerMap] = useState({});
-  const [center, setCenter] = useState(store.mapCenter);
+  const [center, setCenter] = useState();
   const [zoom, setZoom] = useState(5);
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
-  const [select, setSelect] =useState();
+  const [select, setSelect] =useState("madrid");
+  const [check1, setCheck1] = useState(true);
+  const [check2, setCheck2] = useState(true);
+  const [check3, setCheck3] = useState(true);
 
 
   // Load the Google maps scripts
   const { isLoaded } = useLoadScript({ googleMapsApiKey: store.api });
 
-  useEffect(() => {
-    console.log(`Loader: ${isLoaded}`);
-  }, [isLoaded]);
+  //useEffect(() => {
+  //  console.log(`Loader: ${isLoaded}`);
+  //}, [isLoaded]);
 
   // Iterate myPlaces to size, center, and zoom map to contain all markers
   const fitBounds = (map) => {
@@ -86,12 +90,28 @@ const TestMap = () => {
         setSelect(event.target.value);
     }
 
+    const handleChangeCheck1 = () => {
+        setCheck1(!check1);
+    }
+
+    const handleChangeCheck2 = () => {
+        setCheck2(!check2);
+    }
+
+    const handleChangeCheck3 = () => {
+        setCheck3(!check3);
+    }
+
     const changeCity = () => {
         if(select=="paris") setCenter(store.cities.paris);
         if(select=="madrid") setCenter(store.cities.madrid);
         if(select=="malaga") setCenter(store.cities.malaga);
         if(select=="berlin") setCenter(store.cities.berlin);
         setZoom(12);
+    }
+
+    const filterMap = () => {
+        actions.setStoreCheck(check1,check2,check3); 
     }
 
   const renderMap = () => {
@@ -109,8 +129,9 @@ const TestMap = () => {
             width: "100%",
           }}
         >
-          {store.database.map((place) => (
+          {store.database.filter(place => place.check == true).map((place) => (
             <Marker
+              onClick={(event) => markerClickHandler(event, place)}
               key={place.id}
               position={place.pos}
               onLoad={(marker) => {
@@ -134,9 +155,7 @@ const TestMap = () => {
                   })
                 );
                 return markerLoadHandler(marker, place);
-              }}
-              onClick={(event) => markerClickHandler(event, place)}
-            />
+              }}/>
           ))}
 
           {infoOpen && selectedPlace && (
@@ -171,14 +190,43 @@ const TestMap = () => {
           </h3>
         )}
 
-        <select value={select} onChange={handleChange}>
-            <option value="madrid">Madrid</option>
-            <option value="malaga">Málaga</option>
-            <option value="paris">París</option>
-            <option value="berlin">Berlín</option>
-        </select>
+        <div className="row my-3">
+            <div className="col-6 mx-3">
+                <label className="title">Elija a qué ciudad ir: </label>
+                <select className="mx-3" value={select} onChange={handleChange}>
+                    <option value="madrid">Madrid</option>
+                    <option value="malaga">Málaga</option>
+                    <option value="paris">París</option>
+                    <option value="berlin">Berlín</option>
+                </select>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-6 mx-3">
+                <button className="btn btn-danger mx-3" onClick={() => changeCity()}>Cambiar ciudad</button>
+                <MapForm/>
+            </div>
+        </div>
         
-        <button className="btn btn-danger" onClick={() => changeCity()}>Cambiar ciudad</button>
+        <div className="row mx-3 my-3">
+            <div className="col-6">
+                <input type="checkbox" checked={check1} onChange={handleChangeCheck1}></input>
+                <label className="title mx-2">ROBO</label>
+           
+                <input type="checkbox" checked={check2} onChange={handleChangeCheck2}></input>
+                <label className="title mx-2">ACCIDENTE</label>
+           
+                <input type="checkbox" checked={check3} onChange={handleChangeCheck3}></input>
+                <label className="title mx-2">PELEA</label>
+           </div>
+        </div>
+
+        <div className="row">
+            <div className="col-6">
+                <button className="btn btn-danger mx-3" onClick={filterMap}>TEST FILTRO</button>
+            </div>
+        </div>
+
         {/* Position of the user's map click */}
         {/*selectedPlace && <h3>Selected Marker: {selectedPlace.id}</h3>*/}
       </>

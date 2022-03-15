@@ -86,70 +86,69 @@ const MapForm = () => {
     }
     
 	return opened ? (
-		<>
+		<>  
             <button className="btn grad-btn" onClick={() => setOpened(false)}>-</button>
+                    <div className="container mt-5">
+                        <div className="row my-3">
+                            <div className="col">
+                                <label className="title">¿Cuál es tu nombre? *</label>
+                                <input
+                                    className="row"
+                                    type="text"
+                                    onChange={validateInputName}
+                                    value={inputName}
+                                />
+                            </div>
+                        </div>
 
-			<div className="container mt-5 bg-form py-2">
-                <div className="row my-3">
-                    <div className="col">
-                        <label className="title">¿Cuál es tu nombre? *</label>
-                        <input
-                            className="row"
-                            type="text"
-                            onChange={validateInputName}
-                            value={inputName}
-                        />
+                        <div className="row my-3">
+                            <div className="col">
+                                <label className="title">¿Qué ha sucedido? *</label>
+                                <select value={selectState} onChange={handleChange} className="row mx-2">
+                                    <option value="Robo-Asalto">Robo/Asalto</option>
+                                    <option value="Accidente-de-Transito">Accidente de tránsito</option>
+                                    <option value="Pelea-Callejera">Pelea callejera</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="row my-3">
+                            <div className="col">
+                                <label className="title">¿En dónde? (dirección) *</label>
+                                <input
+                                    className="row"
+                                    type="text"
+                                    onChange={validateInputAddress}
+                                    value={inputAddress}
+                                    placeholder="Calle, ciudad... "
+                                />
+                            </div>
+                        </div>
+
+                        
+                        <div className="row my-3">
+                            <div className="col">
+                                <label className="title">Agrega una breve descripción: </label>
+                                <input
+                                    className="row myInput"
+                                    type="text"
+                                    onChange={validateInputDescrip}
+                                    value={inputDescrip}
+                                    placeholder="Un coche ha impactado contra una moto..."
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row my-3">
+                            <div className="col">
+                                <button
+                                    onClick={() => geoCoder()}
+                                    className="btn btn-danger">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div className="row my-3">
-                    <div className="col">
-                        <label className="title">¿Qué ha sucedido? *</label>
-                        <select value={selectState} onChange={handleChange} className="row mx-2">
-                            <option value="Robo-Asalto">Robo/Asalto</option>
-                            <option value="Accidente-de-Transito">Accidente de tránsito</option>
-                            <option value="Pelea-Callejera">Pelea callejera</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div className="row my-3">
-                    <div className="col">
-                        <label className="title">¿En dónde? (dirección) *</label>
-                        <input
-                            className="row"
-                            type="text"
-                            onChange={validateInputAddress}
-                            value={inputAddress}
-                            placeholder="Calle, ciudad... "
-                        />
-                    </div>
-                </div>
-
-                
-                <div className="row my-3">
-                    <div className="col">
-                        <label className="title">Agrega una breve descripción: </label>
-                        <input
-                            className="row myInput"
-                            type="text"
-                            onChange={validateInputDescrip}
-                            value={inputDescrip}
-                            placeholder="Un coche ha impactado contra una moto..."
-                        />
-                    </div>
-                </div>
-
-				<div className="row my-3">
-					<div className="col">
-						<button
-							onClick={() => geoCoder()}
-							className="btn btn-danger">
-							Enviar
-						</button>
-					</div>
-				</div>
-			</div>
 		</>
 	) : (<button className="btn grad-btn" onClick={() => setOpened(true)}>
     +
