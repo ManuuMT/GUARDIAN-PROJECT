@@ -73,11 +73,12 @@ const SignUp = () => {
                 password: formValues.password
             })
             
-            store.fetchErrors ? setIsSubmit(true) : null;
+            //store.fetchErrors ? setIsSubmit(true) : null;
             //setIsSubmit(true);
         }
         else console.log("La cagaste marico");
         
+        //setIsSubmit(true);
         actions.setBool(true); 
         console.log(store.isBool); 
     }

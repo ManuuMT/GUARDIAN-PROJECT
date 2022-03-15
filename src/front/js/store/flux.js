@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
         actions: {
 			onboarding: (body) => {
-                const url = 'https://3001-manuumt-guardian-3o3qj3chgtg.ws-eu34.gitpod.io/api/'.concat('onboarding');
+                const url = process.env.BACKEND_URL.concat('/api/onboarding');
                 const header = {
                     method: "POST",
                     body: JSON.stringify(body),
@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
            
             validateUser: (body) => {
 
-                const url = 'https://3001-manuumt-guardian-3o3qj3chgtg.ws-eu34.gitpod.io/api/'.concat('login');
+                const url = process.env.BACKEND_URL.concat('/api/login');
                 const header = {
                     method: "POST",
                     body: JSON.stringify(body),
