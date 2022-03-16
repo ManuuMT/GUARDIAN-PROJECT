@@ -26,9 +26,9 @@ const TestMap = () => {
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
   const [select, setSelect] =useState("madrid");
-  const [check1, setCheck1] = useState(true);
-  const [check2, setCheck2] = useState(true);
-  const [check3, setCheck3] = useState(true);
+  const [check1, setCheck1] = useState(store.checkRobbery);
+  const [check2, setCheck2] = useState(store.checkCrash);
+  const [check3, setCheck3] = useState(store.checkFight);
 
 
   // Load the Google maps scripts

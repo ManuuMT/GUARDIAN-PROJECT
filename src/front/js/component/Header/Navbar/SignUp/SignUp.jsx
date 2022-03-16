@@ -11,14 +11,14 @@ const SignUp = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
-        setFormValues({username: "", email:"", password:""});
+        setFormValues({email:"", password:"",password2:""});
         setFormErrors({});
         setIsSubmit(false);      
     };
 
     const handleShow = () => setShow(true);
 
-    const [formValues, setFormValues] = useState({email:"", password:""}); 
+    const [formValues, setFormValues] = useState({email:"", password:"", password2:""}); 
     const [formErrors, setFormErrors] = useState({}); 
     const [isSubmit, setIsSubmit] = useState(false); 
 
@@ -29,7 +29,7 @@ const SignUp = () => {
     };
 
     useEffect(() => {
-        console.log(formErrors); 
+        //console.log(formErrors); 
         if(Object.keys(formErrors).length === 0 && isSubmit) {
             console.log(formValues); 
         }
@@ -41,22 +41,28 @@ const SignUp = () => {
     
         if(!values.email){
             actions.setBool(false); 
-            errors.email = "Email is required!";
+            errors.email = "¡Escriba un correo!";
         } else if (!regex.test(values.email)){
             actions.setBool(false); 
-            errors.email = "Invalid email!";
+            errors.email = "Correo no válido";
         }
 
         if(!values.password){
             actions.setBool(false); 
-            errors.password = "Password is required!";
+            errors.password = "¡Escriba una contraseña!";
         } else if (values.password.length < 4){
             actions.setBool(false); 
-            errors.password = "Password must be more than 4 characters";
+            errors.password = "La contraseña debe tener al menos 4 caracteres";
         } else if (values.password.length > 10){
             actions.setBool(false); 
-            errors.password = "Password cannot exceed more than 10 characters";
+            errors.password = "La contraseña no puede exceder los 10 caracteres";
         }
+
+        if(values.password != values.password2){
+            actions.setBool(false);
+            errors.password2 = "Las contraseñas no coinciden"
+        }
+
         return errors; 
     };
 
@@ -148,10 +154,11 @@ const SignUp = () => {
                                                         <i className="fas fa-envelope prefix grey-text"></i>
                                                         <label data-error="wrong" data-success="right">Confirmar Password</label>
                                                     </div>
-                                                    <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
+                                                    <input type="password" id="defaultForm-email" name="password2" value={formValues.password2} onChange={handleChange} className="form-control" placeholder="Introduce tu contraseña de nuevo"/>
                                                 </div>
-                                                {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
+                                                <p className="text-warning">{formErrors.password2}</p>
                                         </div>
+                                        {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
                                 </Modal.Body>
                                 
                                 <Modal.Footer>

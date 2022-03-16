@@ -36,6 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(res => res.json())
                     .then(data => {
                         if (typeof data.token !== 'undefined') {
+                            setStore({userEmail: body.email});
                             setStore({isLoggedIn: true, fetchErrors: null})
                             localStorage.setItem('token', data.token)
                         }else{
