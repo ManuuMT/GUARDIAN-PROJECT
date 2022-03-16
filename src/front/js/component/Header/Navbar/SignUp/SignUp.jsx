@@ -148,7 +148,7 @@ const SignUp = () => {
                                         <div className="container modal-body">      
                                                 <div className="container">
                                                     <div className="p-2">
-                                                        <i className="fas fa-envelope prefix grey-text px-2"></i>
+                                                        <i className="fas fa-lock prefix grey-text px-2"></i>
                                                         <label data-error="wrong" data-success="right">Confirmar Contraseña</label>
                                                     </div>
                                                     <input type="password" name="password2" value={formValues.password2} onChange={handleChange} 
