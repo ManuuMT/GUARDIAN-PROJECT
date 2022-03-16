@@ -11,13 +11,14 @@ const SignUp = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
+
         setFormValues({email:"", password:"",password2:""});
         setFormErrors({});
         setIsSubmit(false);      
     };
 
     const handleShow = () => setShow(true);
-
+    
     const [formValues, setFormValues] = useState({email:"", password:"", password2:""}); 
     const [formErrors, setFormErrors] = useState({}); 
     const [isSubmit, setIsSubmit] = useState(false); 
@@ -61,6 +62,7 @@ const SignUp = () => {
         if(values.password != values.password2){
             actions.setBool(false);
             errors.password2 = "Las contraseñas no coinciden"
+
         }
 
         return errors; 
@@ -78,13 +80,8 @@ const SignUp = () => {
                 email: formValues.email,
                 password: formValues.password
             })
-            
-            //store.fetchErrors ? setIsSubmit(true) : null;
-            //setIsSubmit(true);
         }
-        else console.log("La cagaste marico");
-        
-        //setIsSubmit(true);
+
         actions.setBool(true); 
         console.log(store.isBool); 
     }
@@ -119,40 +116,40 @@ const SignUp = () => {
 
                                         <div className="container modal-body">      
                                                 <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
-                                                        <label data-error="wrong" data-success="right">Email</label>
+                                                    <div className="p-2">
+                                                        <i className="fas fa-envelope prefix grey-text px-2"></i>
+                                                        <label data-error="wrong" data-success="right">Correo Electrónico</label>
                                                     </div>
                                                     <input type="email" className="form-control" placeholder="Introduce tu correo" 
                                                         name="email"
                                                         value={formValues.email}  
                                                         onChange={handleChange}                        
                                                         />
+                                                    <p className="text-warning mt-2">{formErrors.email}</p>
                                                 </div>
-                                                <p className="text-warning">{formErrors.email}</p>
+                                                
                                         </div>
 
                                         <div className="container modal-body">      
                                                 <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
-                                                        <label data-error="wrong" data-success="right">Password</label>
+                                                    <div className="p-2">
+                                                        <i className="fas fa-lock prefix grey-text px-2"></i>
+                                                        <label data-error="wrong" data-success="right">Contraseña</label>
                                                     </div>
                                                     <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
                                                         name="password"
                                                         value={formValues.password}  
                                                         onChange={handleChange}                        
                                                         />
+                                                    <p className="text-warning mt-2">{formErrors.password}</p>
                                                 </div>
-                                                <p className="text-warning">{formErrors.password}</p>
-
                                         </div>
 
                                         <div className="container modal-body">      
                                                 <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
-                                                        <label data-error="wrong" data-success="right">Confirmar Password</label>
+                                                    <div className="p-2">
+                                                        <i className="fas fa-envelope prefix grey-text px-2"></i>
+                                                        <label data-error="wrong" data-success="right">Confirmar Contraseña</label>
                                                     </div>
                                                     <input type="password" id="defaultForm-email" name="password2" value={formValues.password2} onChange={handleChange} className="form-control" placeholder="Introduce tu contraseña de nuevo"/>
                                                 </div>
@@ -162,7 +159,7 @@ const SignUp = () => {
                                 </Modal.Body>
                                 
                                 <Modal.Footer>
-                                    <Button type="submit" onClick={() => sendData()}>Registrar</Button>
+                                    <Button type="submit" onClick={() => sendData()} className="grad-btn">Registrar</Button>
                                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                                 </Modal.Footer>
 
