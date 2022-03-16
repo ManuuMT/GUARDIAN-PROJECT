@@ -12,8 +12,8 @@ const Maps = () => {
 
     useEffect(() => {
         setLoader(true);
-    }, [store.finalArray])
-    
+    }, [store.mapMarkers])
+
 
     return (
       <div className="container">
@@ -21,14 +21,14 @@ const Maps = () => {
             <h1>QuickMap </h1> 
         </div>
         
-
+        
         {loader ?
         <GoogleMaps
-        apiKey={"AIzaSyAIoaqD6zupornIMbdYcAfDaTSHjAjFWJ4"}
+        //apiKey={store.api}
         style={{ height: "400px", width: "550px"}}
         zoom={12}
         center={store.mapCenter}
-        markers={store.finalArray}
+        markers={store.mapMarkers}
         className="map"
          />
         : <h1>Cargando mapa...</h1>

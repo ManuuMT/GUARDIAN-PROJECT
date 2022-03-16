@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./pages/Home.jsx";
@@ -7,18 +7,18 @@ import { About } from "./pages/About.jsx"
 import { Contact } from "./pages/Contact.jsx"
 import { Dashboard } from "./pages/Dashboard.jsx"
 
-//import Navbar from "./component/Header/Navbar/Navbar.jsx";
-import injectContext from "./store/appContext";
+import injectContext, {Context} from "./store/appContext";
+import { Redirect } from "react-router-dom";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
-
+	const {store} = useContext(Context);
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
 				<Switch>
 					<Route exact path="/">
-						<Home/>
+						{store.isLoggedIn ? <Redirect to="/Dashboard" /> : <Home />}
 					</Route>
 					
 					<Route exact path="/Map">
@@ -34,9 +34,8 @@ const Layout = () => {
 					</Route>
 
 					<Route exact path="/Dashboard">
-						<Dashboard/>
-					</Route>
-
+            			{store.isLoggedIn ? <Dashboard /> : <Redirect to="/" />}
+          			</Route>
 				</Switch>
 			</BrowserRouter>
 		</div>
