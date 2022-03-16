@@ -155,7 +155,11 @@ const SignUp = () => {
                                                 </div>
                                                 <p className="text-warning">{formErrors.password2}</p>
                                         </div>
-                                        {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
+                                        <div className="container text-warning"> 
+                                            <div className="container">
+                                                {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
+                                            </div>
+                                        </div>
                                 </Modal.Body>
                                 
                                 <Modal.Footer>

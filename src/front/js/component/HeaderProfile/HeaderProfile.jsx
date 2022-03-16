@@ -1,5 +1,5 @@
 import React from "react";
-//import './HeaderProfile.scss';
+import './HeaderProfile.scss';
 import { ProgressBar , Row, Col } from 'react-bootstrap';
 import { BiMessageRoundedError } from 'react-icons/bi';
 import { BsHandThumbsUpFill , BsFacebook} from 'react-icons/bs';

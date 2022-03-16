@@ -7,7 +7,7 @@ const HeaderAbout = () => {
     return (
 
         <>
-            <div className="container-fluid">
+            <div className="container">
                 <div className="headerAboutBody">
                     <Row className="d-flex justify-content-center align-items-center">
                         <Col>

@@ -6,6 +6,7 @@ import SignIn from "./SignIn/SignIn.jsx";
 import SignUp from "./SignUp/SignUp.jsx";
 import { Context } from "../../../store/appContext";
 import { Link } from "react-router-dom";
+import {Button } from "react-bootstrap";
 
 const Navbar = () => {
     const { store, actions } = useContext(Context);
@@ -48,7 +49,7 @@ const Navbar = () => {
                         {store.isLoggedIn ? 
                         <div className="userEmail">
                         {store.userEmail}
-                        <button className="grad-btn no-border mx-2" onClick={() => actions.logout()}>Cerrar sesión</button>
+                        <Button className="grad-btn no-border mx-2" onClick={() => actions.logout()}>Cerrar sesión</Button>
                         </div> : 
                             <>
                             <SignIn/>

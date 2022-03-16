@@ -36,12 +36,6 @@ const SignIn = () => {
         if(!values.password){
             actions.setBool(false); 
             errors.password = "Password is required!";
-        } else if (values.password.length < 4){
-            actions.setBool(false); 
-            errors.password = "Password must be more than 4 characters";
-        } else if (values.password.length > 10){
-            actions.setBool(false); 
-            errors.password = "Password cannot exceed more than 10 characters";
         }
         return errors; 
     };
@@ -64,46 +58,50 @@ const SignIn = () => {
 
             <Modal show={show} onHide={handleClose} className="text-white">
                                
-                    <Modal.Header closeButton>
-                        <Modal.Title>Entrar</Modal.Title>
+                    <Modal.Header closeButton variant="white">
+                        <Modal.Title >Entrar</Modal.Title>
                     </Modal.Header>
                 
                     <Modal.Body>
                         
                             <div className="container modal-body">      
-                                    <div className="container">
                                         <div className="container">
-                                            <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Email</label>
-                                        </div>
-                                        <input type="text" className="form-control" placeholder="Introduce tu nombre" 
-                                            name = "email"  
-                                            value={formValues.email}  
-                                            onChange={handleChange}              
-                                            />
-                                    </div>
-                                    <p className="text-warning">{formErrors.email}</p>
+                                            <div className="p-2">
+                                                <i className="fas fa-envelope prefix grey-text px-2"></i>
+                                                <label data-error="wrong" data-success="right">Correo Electrónico</label>
+                                            </div>
+                                            <input type="email" className="form-control" placeholder="Introduce tu correo" 
+                                                name="email"
+                                                value={formValues.email}  
+                                                onChange={handleChange}                        
+                                                />
+                                            <p className="text-warning mt-2">{formErrors.email}</p>
+                                </div>
                             </div>
 
                             <div className="container modal-body">      
                                     <div className="container">
-                                        <div className="container">
-                                            <i className="fas fa-envelope prefix grey-text"></i>
-                                            <label data-error="wrong" data-success="right">Password</label>
+                                        <div className="p-2">
+                                            <i className="fas fa-lock prefix grey-text px-2"></i>
+                                            <label data-error="wrong" data-success="right">Contraseña</label>
                                         </div>
                                         <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
-                                            name="password"   
-                                            value={formValues.password}   
-                                            onChange={handleChange}                     
+                                            name="password"
+                                            value={formValues.password}  
+                                            onChange={handleChange}                        
                                             />
+                                        <p className="text-warning mt-2">{formErrors.password}</p>
                                     </div>
-                                    <p className="text-warning">{formErrors.password}</p>
                             </div>
-                            {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
+                            <div className="container text-warning"> 
+                                <div className="container">
+                                    {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
+                                </div>
+                            </div>
                     </Modal.Body>
                     
                     <Modal.Footer>
-                        <Button type="submit" onClick={checkUser}>Entrar</Button>
+                        <Button type="submit" onClick={checkUser} className="grad-btn no-border">Entrar</Button>
                         <Button variant="secondary" onClick={handleClose}>Close</Button>
                     </Modal.Footer>
             </Modal>
