@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
     
         <nav className="navbar navbar-expand-lg navbar-dark bg-navbar pt-2 sticky-top">
-          <a className="navbar-brand"><img src={logo} className="logo"/><strong>Guardian</strong></a>
+          <a className="navbar-brand" href="/"><img src={logo} className="logo"/><strong>Guardian</strong></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
           </button>
