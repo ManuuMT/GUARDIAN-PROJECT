@@ -11,14 +11,14 @@ const SignUp = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
-        setFormValues({username: "", email:"", password:""});
+        setFormValues({email: "", password:"", password2:""});
         setFormErrors({});
         setIsSubmit(false);      
     };
 
     const handleShow = () => setShow(true);
 
-    const [formValues, setFormValues] = useState({email:"", password:""}); 
+    const [formValues, setFormValues] = useState({email:"", password:"", password2: ""}); 
     const [formErrors, setFormErrors] = useState({}); 
     const [isSubmit, setIsSubmit] = useState(false); 
 
@@ -57,6 +57,12 @@ const SignUp = () => {
             actions.setBool(false); 
             errors.password = "Password cannot exceed more than 10 characters";
         }
+
+        if(values.password != values.password2){
+            actions.setBool(false);
+            errors.password2 = "Password doesn't match"
+        }
+
         return errors; 
     };
 
@@ -72,13 +78,8 @@ const SignUp = () => {
                 email: formValues.email,
                 password: formValues.password
             })
-            
-            //store.fetchErrors ? setIsSubmit(true) : null;
-            //setIsSubmit(true);
         }
-        else console.log("La cagaste marico");
-        
-        //setIsSubmit(true);
+
         actions.setBool(true); 
         console.log(store.isBool); 
     }
@@ -113,8 +114,8 @@ const SignUp = () => {
 
                                         <div className="container modal-body">      
                                                 <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                    <div className="p-2">
+                                                        <i className="fas fa-envelope prefix grey-text px-2"></i>
                                                         <label data-error="wrong" data-success="right">Email</label>
                                                     </div>
                                                     <input type="email" className="form-control" placeholder="Introduce tu correo" 
@@ -122,14 +123,15 @@ const SignUp = () => {
                                                         value={formValues.email}  
                                                         onChange={handleChange}                        
                                                         />
+                                                    <p className="text-warning mt-2">{formErrors.email}</p>
                                                 </div>
-                                                <p className="text-warning">{formErrors.email}</p>
+                                                
                                         </div>
 
                                         <div className="container modal-body">      
                                                 <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                    <div className="p-2">
+                                                        <i className="fas fa-lock prefix grey-text px-2"></i>
                                                         <label data-error="wrong" data-success="right">Password</label>
                                                     </div>
                                                     <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
@@ -137,21 +139,25 @@ const SignUp = () => {
                                                         value={formValues.password}  
                                                         onChange={handleChange}                        
                                                         />
+                                                    <p className="text-warning mt-2">{formErrors.password}</p>
                                                 </div>
-                                                <p className="text-warning">{formErrors.password}</p>
-
                                         </div>
 
                                         <div className="container modal-body">      
                                                 <div className="container">
-                                                    <div className="container">
-                                                        <i className="fas fa-envelope prefix grey-text"></i>
+                                                    <div className="p-2">
+                                                        <i className="fas fa-envelope prefix grey-text px-2"></i>
                                                         <label data-error="wrong" data-success="right">Confirmar Password</label>
                                                     </div>
-                                                    <input type="email" id="defaultForm-email" className="form-control validate" placeholder="Introduce tu correo"/>
+                                                    <input type="password" className="form-control" placeholder="Introduce tu contraseña de nuevo"
+                                                        name="password2"
+                                                        value={formValues.password2}  
+                                                        onChange={handleChange} />
                                                 </div>
-                                                {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
+                                                <p className="text-warning">{formErrors.password2}</p>
+                                                
                                         </div>
+                                        {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
                                 </Modal.Body>
                                 
                                 <Modal.Footer>
