@@ -113,6 +113,7 @@ const TestMap = prop => {
 
     const filterMap = () => {
         actions.setStoreCheck(check1,check2,check3); 
+        actions.getFetch();
     }
 
   const renderMap = () => {
@@ -182,11 +183,11 @@ const TestMap = prop => {
         </GoogleMap>
 
         {/* Position of the user's map click */}
-        {clickedLatLng && (
+        {/*clickedLatLng && (
           <h3>
             You clicked: {clickedLatLng.lat}, {clickedLatLng.lng}
           </h3>
-        )}
+        )*/}
         
         <div className="row d-flex align-items-center">
             <div className="col-lg-4 col-md-12">
