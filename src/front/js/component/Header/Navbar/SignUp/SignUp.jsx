@@ -151,9 +151,10 @@ const SignUp = () => {
                                                         <i className="fas fa-envelope prefix grey-text px-2"></i>
                                                         <label data-error="wrong" data-success="right">Confirmar Contraseña</label>
                                                     </div>
-                                                    <input type="password" id="defaultForm-email" name="password2" value={formValues.password2} onChange={handleChange} className="form-control" placeholder="Introduce tu contraseña de nuevo"/>
+                                                    <input type="password" name="password2" value={formValues.password2} onChange={handleChange} 
+                                                    className="form-control" placeholder="Introduce tu contraseña de nuevo"/>
+                                                    <p className="text-warning mt-2">{formErrors.password2}</p>
                                                 </div>
-                                                <p className="text-warning">{formErrors.password2}</p>
                                         </div>
                                         <div className="container text-warning"> 
                                             <div className="container">

@@ -53,14 +53,6 @@ const BodyProfile = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-md-12">
-                                            <div className="about-inputs"> 
-                                                <label>Sobre mí</label> 
-                                                    <textarea v="form-control" type="text" placeholder="Cuenta algo sobre tí" className="aboutForm"></textarea> 
-                                                </div>
-                                        </div>
-                                    </div>
                                     <div className="mt-3 gap-2 d-flex justify-content-end"> 
                                         <button className="btn grad-btn mt-2">Cancelar</button> 
                                         <button className="btn grad-btn mt-2">Guardar</button> </div>
