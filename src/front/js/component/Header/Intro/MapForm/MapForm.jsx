@@ -2,6 +2,11 @@ import React, { useState, useContext } from "react";
 import Geocode from "react-geocode";
 import {Context} from "../../../../store/appContext.js"
 
+
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
+
 const MapForm = () => {
     const { store, actions } = useContext(Context);
 
@@ -21,8 +26,8 @@ const MapForm = () => {
         Geocode.fromAddress(inputAddress)
         .then((response) => {
             let latlng = response.results[0].geometry.location;
-            //console.log("Latitud de su direccion: " + latlng.lat);
-            //console.log("Longitud de su direccion: " + latlng.lng);
+            console.log("Latitud de su direccion: " + latlng.lat);
+            console.log("Longitud de su direccion: " + latlng.lng);
             sendData(latlng);
         })
         .catch((error) => console.error("Geocode lanzó el siguiente error: " + error));
@@ -48,7 +53,7 @@ const MapForm = () => {
 
     const sendData = (obj) => {
 
-        //console.log("Este es obj: " + obj);
+        console.log("Este es obj: " + obj);
 
         let body = {
             reported_by: inputName,
@@ -58,7 +63,7 @@ const MapForm = () => {
             description: inputDescrip,
             address: inputAddress
         }
-        //console.log(body);
+        console.log(body);
         optimizedFetch("POST",JSON.stringify(body));
     }
 
@@ -71,93 +76,105 @@ const MapForm = () => {
 				"Content-Type": "application/json"
 			}
 		};
-        //console.log(url); /*prueba*/
+        console.log(url); /*prueba*/
 		fetch(url, header)
 			.then(res => res.json())
 			.then(data => {
-                actions.getFetch();
                 console.log("Datos enviados: " + data);
-            })
-			.catch(error => {
                 actions.getFetch();
-                console.error("Ocurrió el siguiente error: "+error);
-            });
-            
-        
+            })
+			.catch(error => console.error("Ocurrió el siguiente error: "+error));
 	};
 
     const handleChange = event => {
         setSelect(event.target.value);
     }
     
-	return opened ? (
-		<>  
-            <button className="btn grad-btn" onClick={() => setOpened(false)}>-</button>
-                    <div className="container mt-5">
-                        <div className="row my-3">
-                            <div className="col">
-                                <label className="title">¿Cuál es tu nombre? *</label>
-                                <input
-                                    className="row"
-                                    type="text"
-                                    onChange={validateInputName}
-                                    value={inputName}
-                                />
-                            </div>
-                        </div>
+	return  (
+	
+    <>  
 
-                        <div className="row my-3">
-                            <div className="col">
-                                <label className="title">¿Qué ha sucedido? *</label>
-                                <select value={selectState} onChange={handleChange} className="row mx-2">
-                                    <option value="Robo-Asalto">Robo/Asalto</option>
-                                    <option value="Accidente-de-Transito">Accidente de tránsito</option>
-                                    <option value="Pelea-Callejera">Pelea callejera</option>
-                                </select>
-                            </div>
-                        </div>
+        <Button className="btn grad-btn" onClick={() => setOpened(true)}>Añadir incidente</Button>
 
-                        <div className="row my-3">
-                            <div className="col">
-                                <label className="title">¿En dónde? (dirección) *</label>
-                                <input
-                                    className="row"
-                                    type="text"
-                                    onChange={validateInputAddress}
-                                    value={inputAddress}
-                                    placeholder="Calle, ciudad... "
-                                />
-                            </div>
-                        </div>
+        <Modal show={opened}>
 
-                        
-                        <div className="row my-3">
-                            <div className="col">
-                                <label className="title">Agrega una breve descripción: </label>
-                                <input
-                                    className="row myInput"
-                                    type="text"
-                                    onChange={validateInputDescrip}
-                                    value={inputDescrip}
-                                    placeholder="Un coche ha impactado contra una moto..."
-                                />
+            <Modal.Header>
+                    <Modal.Title className="text-white">Nuevo Incidente</Modal.Title>
+                    <Button className="btn grad-btn" onClick={() => setOpened(false)}>X</Button>
+            </Modal.Header>
+            
+            <Modal.Body>
+                            <div className="container modal-body">
+                                <div className="container">
+                                    
+                                            <label className="title">¿Cuál es tu nombre? *</label>
+                                            <input
+                                                className="form-control"
+                                                type="text"
+                                                onChange={validateInputName}
+                                                value={inputName}
+                                            />
+                                    
+                                </div>
                             </div>
-                        </div>
+                            <div className="container modal-body">
+                                <div className="container">
+                                    
+                                        <label className="title">¿Qué ha sucedido? *</label>
+                                        <select value={selectState} onChange={handleChange} className="form-control">
+                                            <option value="Robo-Asalto">Robo/Asalto</option>
+                                            <option value="Accidente-de-Transito">Accidente de tránsito</option>
+                                            <option value="Pelea-Callejera">Pelea callejera</option>
+                                        </select>
+                                    
+                                </div>
+                            </div>
 
-                        <div className="row my-3">
-                            <div className="col">
-                                <button
-                                    onClick={() => geoCoder()}
-                                    className="btn btn-danger">
-                                    Enviar
-                                </button>
+                            <div className="container modal-body">
+                                <div className="container">
+                                    
+                                        <label className="title">¿En dónde? (dirección) *</label>
+                                        <input
+                                            className="form-control"
+                                            type="text"
+                                            onChange={validateInputAddress}
+                                            value={inputAddress}
+                                            placeholder="Calle, ciudad... "
+                                        />
+                                   
+                                </div>
                             </div>
-                        </div>
-                    </div>
-		</>
-	) : (<button className="btn grad-btn" onClick={() => setOpened(true)}>
-    Añadir incidente
-  </button>);
+
+                            <div className="container modal-body">
+                                <div className="container">
+                                    
+                                        <label className="title">Agrega una breve descripción: </label>
+                                        <input
+                                            className="form-control myInput"
+                                            type="text"
+                                            onChange={validateInputDescrip}
+                                            value={inputDescrip}
+                                            placeholder="Un coche ha impactado contra una moto..."
+                                        />
+                                    
+                                </div>
+                            </div>
+
+                </Modal.Body>
+
+                <Modal.Footer>
+                        <Button
+                            onClick={() => geoCoder()}
+                            className="btn grad-btn">
+                            Enviar
+                        </Button>
+                </Modal.Footer>
+            </Modal>
+
+	    </>
+    
+    );
+
 };
 
 export default MapForm;
