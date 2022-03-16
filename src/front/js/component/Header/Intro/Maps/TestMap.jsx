@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../../../store/appContext.js";
 import MapForm from "../MapForm/MapForm.jsx";
+import PropTypes from 'prop-types';
 
 // We will use these things from the lib
 // https://react-google-maps-api-docs.netlify.com/
@@ -11,7 +12,7 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 
-const TestMap = () => {
+const TestMap = prop => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
@@ -26,9 +27,9 @@ const TestMap = () => {
   const [clickedLatLng, setClickedLatLng] = useState(null);
   const [infoOpen, setInfoOpen] = useState(false);
   const [select, setSelect] =useState("madrid");
-  const [check1, setCheck1] = useState(true);
-  const [check2, setCheck2] = useState(true);
-  const [check3, setCheck3] = useState(true);
+  const [check1, setCheck1] = useState(store.checkRobbery);
+  const [check2, setCheck2] = useState(store.checkCrash);
+  const [check3, setCheck3] = useState(store.checkFight);
 
 
   // Load the Google maps scripts
@@ -124,10 +125,7 @@ const TestMap = () => {
           onClick={(e) => setClickedLatLng(e.latLng.toJSON())}
           center={center}
           zoom={zoom}
-          mapContainerStyle={{
-            height: "70vh",
-            width: "100%",
-          }}
+          mapContainerStyle={prop.style}
         >
           {store.database.filter(place => place.check == true).map((place) => (
             <Marker
@@ -235,5 +233,9 @@ const TestMap = () => {
 
   return isLoaded ? renderMap() : null;
 };
+
+TestMap.propTypes = {
+    style: PropTypes.object
+  };
 
 export default TestMap;

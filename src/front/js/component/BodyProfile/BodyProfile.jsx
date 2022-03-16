@@ -1,6 +1,5 @@
 import React from "react";
 import './BodyProfile.scss';
-import Maps from "../Header/Intro/Maps/Maps.jsx";
 
 import { Row , Col , Card , Button} from 'react-bootstrap';
 import { AiFillStar , AiOutlineStar } from 'react-icons/ai';

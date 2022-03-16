@@ -9,7 +9,7 @@ const InTouch = () => {
     return (
         <> 
             <div className="container text-white py-5">
-                <h1 className="pb-4">Get In Touch</h1>
+                <h1 className="pb-4">Mantente en contacto (:</h1>
                 <p>Estamos aquí para satisfacer tus necesidades en el uso de GUARDIAN. 
                     Contacta con nosotros en caso de necesitar asesoramiento que pueda brindar 
                     mejor calidad y experiencia. <br/><br/>También puedes contactar a través de las redes y número de contacto.</p>
