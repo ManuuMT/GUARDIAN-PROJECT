@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import Header from "../component/Header/Header.jsx"
+
+import NavBar from "../component/Header/Navbar/Navbar.jsx";
+import HeaderProfile from "../component/HeaderProfile/HeaderProfile.jsx";
+import BodyProfile from "../component/BodyProfile/BodyProfile.jsx";
 
 
 export const Dashboard = () => {
@@ -8,8 +11,16 @@ export const Dashboard = () => {
 
 	return (
 		<>
-  			<h1 className="text-white">DASHBOARD</h1>
+     <NavBar/>
+     <HeaderProfile/>
+		 <BodyProfile/>
+  			
+      <h1 className="text-white">DASHBOARD</h1>
+			{/*<button onClick={() => actions.logout()}>Logout</button>*/}
+
+  		<h1 className="text-white">DASHBOARD</h1>
 			<button onClick={() => actions.logout()}>Logout</button>
+
 			{/* <Header/> */}
 	  </>
 	);
