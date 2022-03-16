@@ -21,8 +21,8 @@ const MapForm = () => {
         Geocode.fromAddress(inputAddress)
         .then((response) => {
             let latlng = response.results[0].geometry.location;
-            console.log("Latitud de su direccion: " + latlng.lat);
-            console.log("Longitud de su direccion: " + latlng.lng);
+            //console.log("Latitud de su direccion: " + latlng.lat);
+            //console.log("Longitud de su direccion: " + latlng.lng);
             sendData(latlng);
         })
         .catch((error) => console.error("Geocode lanzó el siguiente error: " + error));
@@ -48,7 +48,7 @@ const MapForm = () => {
 
     const sendData = (obj) => {
 
-        console.log("Este es obj: " + obj);
+        //console.log("Este es obj: " + obj);
 
         let body = {
             reported_by: inputName,
@@ -58,7 +58,7 @@ const MapForm = () => {
             description: inputDescrip,
             address: inputAddress
         }
-        console.log(body);
+        //console.log(body);
         optimizedFetch("POST",JSON.stringify(body));
     }
 
@@ -71,14 +71,19 @@ const MapForm = () => {
 				"Content-Type": "application/json"
 			}
 		};
-        console.log(url); /*prueba*/
+        //console.log(url); /*prueba*/
 		fetch(url, header)
 			.then(res => res.json())
 			.then(data => {
-                console.log("Datos enviados: " + data);
                 actions.getFetch();
+                console.log("Datos enviados: " + data);
             })
-			.catch(error => console.error("Ocurrió el siguiente error: "+error));
+			.catch(error => {
+                actions.getFetch();
+                console.error("Ocurrió el siguiente error: "+error);
+            });
+            
+        
 	};
 
     const handleChange = event => {
