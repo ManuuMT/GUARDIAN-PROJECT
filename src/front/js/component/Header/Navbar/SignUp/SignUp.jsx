@@ -3,7 +3,7 @@ import { Context } from "../../../../store/appContext";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './SignUp.scss';
-import SignIn from '/workspace/Guardian/src/front/js/component/Header/Navbar/SignIn/SignIn.jsx';
+import SignIn from "../SignIn/SignIn.jsx";
 
 const SignUp = () => {
 

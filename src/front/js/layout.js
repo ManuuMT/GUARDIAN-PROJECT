@@ -9,6 +9,7 @@ import { Dashboard } from "./pages/Dashboard.jsx"
 
 import injectContext, {Context} from "./store/appContext";
 import { Redirect } from "react-router-dom";
+//	{store.isLoggedIn ? <Redirect to="/Dashboard" /> : <Home />}
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -18,7 +19,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<Switch>
 					<Route exact path="/">
-						{store.isLoggedIn ? <Redirect to="/Dashboard" /> : <Home />}
+                        <Home />
 					</Route>
 					
 					<Route exact path="/Map">

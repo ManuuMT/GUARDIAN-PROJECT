@@ -11,17 +11,10 @@ export const Dashboard = () => {
 
 	return (
 		<>
-     <NavBar/>
-     <HeaderProfile/>
-		 <BodyProfile/>
-  			
-      <h1 className="text-white">DASHBOARD</h1>
-			{/*<button onClick={() => actions.logout()}>Logout</button>*/}
+    <NavBar/>
+    <HeaderProfile/>
+	<BodyProfile/>
 
-  		<h1 className="text-white">DASHBOARD</h1>
-			<button onClick={() => actions.logout()}>Logout</button>
-
-			{/* <Header/> */}
 	  </>
 	);
 };

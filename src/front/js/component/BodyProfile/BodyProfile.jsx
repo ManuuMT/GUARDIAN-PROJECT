@@ -64,7 +64,7 @@ const BodyProfile = () => {
                                     </div>
                                     <div className="mt-3 gap-2 d-flex justify-content-end"> 
                                         <button className="btn grad-btn mt-2">Cancelar</button> 
-                                        <button class="btn grad-btn mt-2">Guardar</button> </div>
+                                        <button className="btn grad-btn mt-2">Guardar</button> </div>
                                 </div>
                             </div>
                     </Col>
@@ -123,7 +123,7 @@ const BodyProfile = () => {
                                                     <small>Eliminar</small> 
                                                     <span className="dots ms-1 me-1"></span> 
                                                     <small>Responder</small> 
-                                                    <span class="dots ms-1 me-1"></span>
+                                                    <span className="dots ms-1 me-1"></span>
                                                 </div>
                                                 <div className="icons align-items-center"> 
                                                     <BsCheckCircleFill></BsCheckCircleFill>

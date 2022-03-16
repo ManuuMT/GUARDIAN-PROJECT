@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../../../../store/appContext";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './SignIn.scss';
-
-import { Link } from "react-router-dom";
 
 const SignIn = () => {
 
@@ -20,7 +18,7 @@ const SignIn = () => {
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormValues({...formValues, [name]:value});
-        console.log(formValues);
+        //console.log(formValues);
     };
 
     const validate = (values) =>{

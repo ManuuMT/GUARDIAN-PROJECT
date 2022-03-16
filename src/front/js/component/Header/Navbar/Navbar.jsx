@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import './Navbar.scss';
 import logo from '../../../../assets/img/logo-guardian.png';
 import NavItem from "./NavItem/NavItem.jsx";
 import SignIn from "./SignIn/SignIn.jsx";
 import SignUp from "./SignUp/SignUp.jsx";
-
+import { Context } from "../../../store/appContext";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+    const { store, actions } = useContext(Context);
+
     return (
     
         <nav className="navbar navbar-expand-lg navbar-dark bg-navbar pt-2 sticky-top">
@@ -34,17 +36,18 @@ const Navbar = () => {
                     <Link to="Contact">
                         <NavItem title="Contacto"/>
                     </Link>
-
-                    <Link to="Dashboard">
+                    { store.isLoggedIn ? <Link to="Dashboard">
                         <NavItem title="Dashboard"/>
-                    </Link>
+                    </Link> : ""}
+                    
                                  
               </ul>
           </div>
                 <div className="nav-right">
                     <div className="container d-flex">
-                            <SignIn/>
-                            <SignUp/>
+                        {store.isLoggedIn ? <button className="grad-btn no-border" onClick={() => actions.logout()}>Cerrar sesión</button> : 
+                            <><SignIn/>
+                            <SignUp/></> }
                     </div>
                 </div>
       </nav>
