@@ -104,10 +104,10 @@ const TestMap = prop => {
     }
 
     const changeCity = () => {
-        if(select=="paris") setCenter(store.cities.paris);
+        if(select=="barcelona") setCenter(store.cities.barcelona);
         if(select=="madrid") setCenter(store.cities.madrid);
         if(select=="malaga") setCenter(store.cities.malaga);
-        if(select=="berlin") setCenter(store.cities.berlin);
+        if(select=="mallorca") setCenter(store.cities.mallorca);
         setZoom(12);
     }
 
@@ -199,8 +199,8 @@ const TestMap = prop => {
                         <select value={select} onChange={handleChange}>
                             <option value="madrid">Madrid</option>
                             <option value="malaga">Málaga</option>
-                            <option value="paris">París</option>
-                            <option value="berlin">Berlín</option>
+                            <option value="barcelona">Barcelona</option>
+                            <option value="mallorca">Mallorca</option>
                         </select>
 
                         <button className="btn btn-danger mx-3" onClick={() => changeCity()}>IR</button>

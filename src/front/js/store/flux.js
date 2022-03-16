@@ -13,10 +13,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             database : [],
             mapCenter : {lat: 40.4127355, lng: -3.695428},
             cities: {
-                paris: {lat: 48.8555969, lng: 2.3516682},
+                barcelona: {lat: 41.3875596, lng: 2.1687476986},
                 madrid: {lat: 40.4157829, lng: -3.704523},
                 malaga: {lat: 36.7195475, lng: -4.4210181},
-                berlin: {lat: 52.5153109, lng: 13.4069167}
+                mallorca: {lat: 39.571480, lng: 2.6500491}
             }
 		},
 		
