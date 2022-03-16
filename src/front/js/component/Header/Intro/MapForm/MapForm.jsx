@@ -151,7 +151,7 @@ const MapForm = () => {
                     </div>
 		</>
 	) : (<button className="btn grad-btn" onClick={() => setOpened(true)}>
-    +
+    Añadir incidente
   </button>);
 };
 
