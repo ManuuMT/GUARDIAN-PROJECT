@@ -1,6 +1,7 @@
 import React from "react";
 import "./Intro.scss"
 import HeroTitle from "./HeroTitle/HeroTitle.jsx"
+//import TestMap from "./Maps/TestMap";
 //import MapForm from "./MapForm/MapForm.jsx"
 
 const Intro = () => {
@@ -13,7 +14,7 @@ const Intro = () => {
         </div>
        
         <div className="quickmap col-md-6 col-sm-12 right-col">
-            
+            {/*<TestMap mapContainerStyle={"height: 70vh, width: 100%"}/>*/}
         </div>
     </div>
 </div>
