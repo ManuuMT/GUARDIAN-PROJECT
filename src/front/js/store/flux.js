@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+            userEmail: null,
             fetchErrors: null,
             isLoggedIn: false,
             isBool: true,             
@@ -63,6 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .then(data => {
                         if (typeof data.token !== 'undefined') {
+                            setStore({userEmail: body.email});
                             setStore({isLoggedIn: true, fetchErrors: null})
                             localStorage.setItem('token', data.token)
                         }else{

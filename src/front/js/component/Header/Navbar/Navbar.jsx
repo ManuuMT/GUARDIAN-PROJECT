@@ -45,8 +45,13 @@ const Navbar = () => {
           </div>
                 <div className="nav-right">
                     <div className="container d-flex">
-                        {store.isLoggedIn ? <button className="grad-btn no-border" onClick={() => actions.logout()}>Cerrar sesión</button> : 
-                            <><SignIn/>
+                        {store.isLoggedIn ? 
+                        <div className="userEmail">
+                        {store.userEmail}
+                        <button className="grad-btn no-border mx-2" onClick={() => actions.logout()}>Cerrar sesión</button>
+                        </div> : 
+                            <>
+                            <SignIn/>
                             <SignUp/></> }
                     </div>
                 </div>
