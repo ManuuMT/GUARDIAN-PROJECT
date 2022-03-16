@@ -116,7 +116,7 @@ const SignUp = () => {
                                                 <div className="container">
                                                     <div className="p-2">
                                                         <i className="fas fa-envelope prefix grey-text px-2"></i>
-                                                        <label data-error="wrong" data-success="right">Email</label>
+                                                        <label data-error="wrong" data-success="right">Correo Electrónico</label>
                                                     </div>
                                                     <input type="email" className="form-control" placeholder="Introduce tu correo" 
                                                         name="email"
@@ -132,7 +132,7 @@ const SignUp = () => {
                                                 <div className="container">
                                                     <div className="p-2">
                                                         <i className="fas fa-lock prefix grey-text px-2"></i>
-                                                        <label data-error="wrong" data-success="right">Password</label>
+                                                        <label data-error="wrong" data-success="right">Contraseña</label>
                                                     </div>
                                                     <input type="password" className="form-control" placeholder="Introduce tu contraseña" 
                                                         name="password"
@@ -147,21 +147,20 @@ const SignUp = () => {
                                                 <div className="container">
                                                     <div className="p-2">
                                                         <i className="fas fa-envelope prefix grey-text px-2"></i>
-                                                        <label data-error="wrong" data-success="right">Confirmar Password</label>
+                                                        <label data-error="wrong" data-success="right">Confirmar Contraseña</label>
                                                     </div>
                                                     <input type="password" className="form-control" placeholder="Introduce tu contraseña de nuevo"
                                                         name="password2"
                                                         value={formValues.password2}  
                                                         onChange={handleChange} />
+                                                    <p className="text-warning mt-2">{formErrors.password2}</p>
                                                 </div>
-                                                <p className="text-warning">{formErrors.password2}</p>
-                                                
                                         </div>
                                         {store.fetchErrors ? <p>{store.fetchErrors}</p> : null} 
                                 </Modal.Body>
                                 
                                 <Modal.Footer>
-                                    <Button type="submit" onClick={() => sendData()}>Registrar</Button>
+                                    <Button type="submit" onClick={() => sendData()} className="grad-btn">Registrar</Button>
                                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                                 </Modal.Footer>
 
