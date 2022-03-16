@@ -1,42 +1,43 @@
-import React from "react";
+import React, {useContext} from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
-import injectContext from "./store/appContext";
+import { Home } from "./pages/Home.jsx";
+import { Map } from "./pages/Map.jsx"
+import { About } from "./pages/About.jsx"
+import { Contact } from "./pages/Contact.jsx"
+import { Dashboard } from "./pages/Dashboard.jsx"
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import injectContext, {Context} from "./store/appContext";
+import { Redirect } from "react-router-dom";
+//	{store.isLoggedIn ? <Redirect to="/Dashboard" /> : <Home />}
 
-//create your first component
 const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
-
+	const {store} = useContext(Context);
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+				<Switch>
+					<Route exact path="/">
+                        <Home />
+					</Route>
+					
+					<Route exact path="/Map">
+						<Map/>
+					</Route>
+
+					<Route exact path="/About">
+						<About/>
+					</Route>
+
+                    <Route exact path="/Contact">
+						<Contact/>
+					</Route>
+
+					<Route exact path="/Dashboard">
+            			{store.isLoggedIn ? <Dashboard /> : <Redirect to="/" />}
+          			</Route>
+				</Switch>
 			</BrowserRouter>
 		</div>
 	);

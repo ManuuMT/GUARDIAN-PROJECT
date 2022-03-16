@@ -1,0 +1,36 @@
+.navbar{
+    background-color: none;
+    display: flex;
+}
+
+.navbar-brand{
+    margin-left: 50px;
+}
+.navbar .collapse{
+    justify-content: center;
+    margin-right: 80px;
+}
+
+.logo{
+    height: 38px;
+    width: 34px;
+}
+
+.grad-btn{
+    color: white;
+    background: linear-gradient(to right, rgba(226,9,203,255), rgba(236,72,44,255));
+    //margin-right: 50px;
+}
+
+.grad-btn-outline{
+    color: white;
+    border: 2px solid rgba(226,9,203,255);
+}
+
+.bg-navbar{
+    background: rgb(42,7,27);
+}
+
+.userEmail{
+    color: white;
+}
