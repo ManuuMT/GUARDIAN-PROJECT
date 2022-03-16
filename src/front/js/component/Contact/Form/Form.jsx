@@ -7,7 +7,7 @@ const Form = () => {
             <div className="container text-white bg-form form-container py-5">
                    
               <div className="container">
-                    <h3 className="">Send us a message</h3>
+                    <h3 className="">Envíanos un mensaje:</h3>
                     <form>
                         
                     <div className="row">
@@ -31,7 +31,7 @@ const Form = () => {
                             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                             <label className="form-check-label">Acepto Términos y Condiciones</label>
                         </div>
-                        <button type="submit" className="btn grad-btn">Submit</button>
+                        <button type="submit" className="btn grad-btn">Enviar</button>
                     </form>
                 </div>
             </div>
