@@ -90,7 +90,7 @@ const SignUp = () => {
                 
         <>
                 <div className="d-flex align-items-center justify-content-center mx-2">
-                    <Button className="grad-btn no-border" onClick={handleShow}>Registrar</Button>
+                    <Button className="grad-btn no-border" onClick={handleShow}>Registrarse</Button>
                 </div>
 
                 { isSubmit ? (
