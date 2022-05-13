@@ -1,12 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+            message: "Test",
             userEmail: null,
             fetchErrors: null,
             isLoggedIn: false,
             isBool: true,             
-            message: "Test",
-            api: "",
             checkRobbery: true,
             checkCrash: true,
             checkFight: true,
@@ -83,7 +82,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
 
             getFetch : () => {
-                setStore({ api: "AIzaSyB_e9nHaPbCdcWHup05GGWfvMfcODEYJTI" });
                 const url = process.env.BACKEND_URL + "/api/incidents";
                 const header = {
                     method: "GET",

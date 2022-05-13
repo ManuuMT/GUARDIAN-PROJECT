@@ -33,11 +33,12 @@ const TestMap = prop => {
 
 
   // Load the Google maps scripts
-  const { isLoaded } = useLoadScript({ googleMapsApiKey: store.api });
-
-  //useEffect(() => {
-  //  console.log(`Loader: ${isLoaded}`);
-  //}, [isLoaded]);
+  const { isLoaded } = useLoadScript({ googleMapsApiKey: process.env.MAP_KEY });
+  
+  /*useEffect(() => {
+    console.log(`Loader: ${isLoaded}`);
+  }, [isLoaded]);
+  */
 
   // Iterate myPlaces to size, center, and zoom map to contain all markers
   const fitBounds = (map) => {
@@ -243,9 +244,6 @@ const TestMap = prop => {
              
             </div>
         </div>
-
-        
-
         {/* Position of the user's map click */}
         {/*selectedPlace && <h3>Selected Marker: {selectedPlace.id}</h3>*/}
       </>
