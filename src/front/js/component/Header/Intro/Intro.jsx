@@ -15,7 +15,7 @@ const Intro = () => {
         </div>
        
         <div className="col-lg-6 col-md-12 my-5 right-col">
-            <TestMap style={quickmap}/>
+            <TestMap style={quickmap} isFullMap={false}/>
             
         </div>
     </div>

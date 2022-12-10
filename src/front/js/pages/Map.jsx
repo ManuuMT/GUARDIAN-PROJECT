@@ -9,7 +9,7 @@ export const Map = () => {
 	return (
 		<>
 			<Navbar/>
-			<TestMap style={fullMap}/>
+			<TestMap style={fullMap} isFullMap={true}/>
         </>
 	);
 };

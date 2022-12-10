@@ -12,7 +12,7 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 
-const TestMap = prop => {
+const TestMap = (props) => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
@@ -127,7 +127,7 @@ const TestMap = prop => {
           onClick={(e) => setClickedLatLng(e.latLng.toJSON())}
           center={center}
           zoom={zoom}
-          mapContainerStyle={prop.style}
+          mapContainerStyle={props.style}
         >
           {store.database.filter(place => place.check == true).map((place) => (
             <Marker
@@ -190,8 +190,8 @@ const TestMap = prop => {
           </h3>
         )*/}
         
-        <div className="row d-flex align-items-center">
-            <div className="col-lg-4 col-md-12">
+        <div className="row d-flex align-items-center mt-2">
+            {props.isFullMap && <div className="col-lg-4 col-md-12">
                 <div className="row my-3 mx-3 text-center">
                     <label className="title">Elija a qué ciudad ir: </label>
                 </div>
@@ -208,7 +208,8 @@ const TestMap = prop => {
                         <button className="btn btn-danger mx-3" onClick={() => changeCity()}>IR</button>
                     </div>
                 </div>
-            </div>
+            </div> }
+            
             
             <div className="col-lg-4 col-md-12">
                 <div className="row text-center">
@@ -218,7 +219,7 @@ const TestMap = prop => {
                 </div>
             </div>
 
-            <div className="col-lg-4 col-md-12">
+            {props.isFullMap && <div className="col-lg-4 col-md-12">
                 <div className="row mx-3 my-3 text-center">
                     <div className="col">
                         
@@ -234,15 +235,8 @@ const TestMap = prop => {
                         <button className="btn btn-danger mx-3" onClick={filterMap}>FILTRAR</button>
 
                     </div>
-
-                        
-                   
-
                 </div> 
-               
-                   
-             
-            </div>
+            </div>}
         </div>
         {/* Position of the user's map click */}
         {/*selectedPlace && <h3>Selected Marker: {selectedPlace.id}</h3>*/}
@@ -254,7 +248,8 @@ const TestMap = prop => {
 };
 
 TestMap.propTypes = {
-    style: PropTypes.object
+    style: PropTypes.object,
+    isFullMap: PropTypes.bool,
   };
 
 export default TestMap;
